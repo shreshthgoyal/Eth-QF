@@ -1,0 +1,96 @@
+.footer {
+    background-color: var(--clr-white);
+    padding-top: clamp(2rem, 10vw, 5rem);
+    padding-bottom: clamp(2rem, 10vw, 5rem);
+  }
+  
+  .footer__container {
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  
+  .footer__header {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .footer__inner {
+    flex-wrap: wrap;
+    gap: 1rem clamp(2rem, 7vw, 6.25rem);
+  }
+  
+  .footer__brand {
+    display: inline-block;
+    width: max-content;
+    font-size: clamp(var(--fs-big), 4vw + 0.5rem, 2rem);
+    font-weight: var(--fw-black);
+    color: var(--clr-black);
+  }
+  
+  .footer__social-icons {
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  .social-icons__link {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 3.125rem;
+    height: 3.125rem;
+    font-size: 1.75rem;
+    background-color: var(--clr-social-icon);
+    color: var(--clr-gray);
+    border-radius: 0.625rem;
+    transition: none 300ms ease-in-out;
+    transition-property: opacity, color, box-shadow;
+  }
+  
+  .social-icons__link--dribbble:hover {
+    color: var(--clr-dribbble);
+    border-color: currentColor;
+  }
+  .social-icons__link--facebook:hover {
+    color: var(--clr-facebook);
+    border-color: currentColor;
+  }
+  .social-icons__link--twitter:hover {
+    color: var(--clr-twitter);
+    border-color: currentColor;
+  }
+  .social-icons__link--youtube:hover {
+    color: var(--clr-youtube);
+    border-color: currentColor;
+  }
+  
+  .social-icons__link:hover {
+    opacity: 0.8;
+  }
+  
+  .list__title {
+    font-size: var(--fs-bold);
+    font-weight: var(--fw-semiBold);
+    margin-bottom: clamp(1rem, 5vw, 1.5rem);
+  }
+  
+  .list__item:not(:last-child) {
+    margin-bottom: 0.5rem;
+  }
+  
+  .list__link {
+    display: inline-block;
+    font-weight: var(--fw-regular);
+    font-size: var(--fs-medium);
+    color: var(--clr-lightGray);
+    transition: transform 300ms ease-in-out;
+  }
+  
+  .list__link:hover {
+    transform: translateX(0.2rem);
+  }
+  
+  .footer__text {
+    color: var(--clr-gray);
+  }

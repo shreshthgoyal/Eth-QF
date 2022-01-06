@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:300,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Josefin+Slab&display=swap");
+.process {
+  width: 100%;
+  padding: 0 15px;
+  text-align: center;
+  margin-top: 3em;
+}
+.process__item {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  text-align: center;
+  position: relative;
+  padding: 15px 35px;
+  font-size: 3em;
+  color: #003c71;
+  transition: 0.4s ease-in-out;
+}
+.process__item:hover {
+  background: #f2f2f2;
+}
+.process__item:hover .process__number {
+  transform: translateY(5px);
+  color: #003c71;
+}
+.process__number {
+  font-size: 90px;
+  -webkit-text-stroke: 1px #003c71;
+  display: block;
+  color: transparent;
+  font-family: "Roboto Condensed";
+  font-weight: 700;
+  transition: 0.4s ease-in-out;
+}
+.process__title {
+  display: block;
+  font-family: "Roboto Condensed";
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  font-size: 35px;
+  color: #003c71;
+  text-transform: uppercase;
+  margin-top: 30px;
+}
+.process__subtitle {
+  display: block;
+  font-family: "Josefin Slab";
+  font-size: 20px;
+  color: #8c8c8c;
+  margin-top: 30px;
+  line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+  .process {
+    display: inline-block;
+  }
+  .process__item {
+    width: 49%;
+    display: inline-block;
+  }
+}
+@media (min-width: 1200px) {
+  .process {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .process__item {
+    width: 100%;
+  }
+  .process__item:not(:last-of-type)::after {
+    content: "";
+    width: 1px;
+    height: 75%;
+    background: #8c8c8c;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    opacity: 0.2;
+    transform: translateY(-50%);
+  }
+}
