@@ -39,18 +39,18 @@ return (
               className="nav-links"
               onClick={click ? handleClick : null}
             >
-              About
+              Sponsor
             </NavLink>
           </li>
           <li className="nav-item">
             <NavLink
               exact="true"
-              to="/blog"
+              to="/"
               activeclassname="active"
               className="nav-links"
               onClick={click ? handleClick : null}
             >
-              Blog
+              Projects
             </NavLink>
           </li>
           <li className="nav-item">
@@ -61,7 +61,7 @@ return (
               className="nav-links"
              onClick={click ? handleClick : null}
             >
-              Contact Us
+              Contribute
             </NavLink>
           </li>
         </ul>

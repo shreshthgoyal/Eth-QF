@@ -28,10 +28,13 @@ const Footer = () => {
         <h3 className="list__title">Home</h3>
       </ul>
       <ul className="footer__list list" role="menu">
-        <h3 className="list__title">Pages</h3>
+        <h3 className="list__title">Contribute</h3>
       </ul>
       <ul className="footer__list list" role="menu">
-        <h3 className="list__title">Blog</h3>
+        <h3 className="list__title">Projects</h3>
+      </ul>
+      <ul className="footer__list list" role="menu">
+        <h3 className="list__title">Sponsor</h3>
       </ul>
     </nav>
     <p className="footer__text">© 2020 Batch IMT - Team5</p>

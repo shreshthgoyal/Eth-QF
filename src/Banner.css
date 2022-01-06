@@ -1,0 +1,17 @@
+.arch {
+    background-color: hsl(235, 81%, 60%);
+    color: white;
+    text-align: center;
+    display: inline-block;
+    border-radius: 0.1875rem;
+    padding: 1rem 1.75rem;
+    font-size: 1rem;
+    font-weight: var(--fw-bold);
+}
+
+.arch:hover {
+        opacity: 0.8;
+        background-color: transparent;
+        color: var(--clr-primary);
+        border-color: currentColor;
+}

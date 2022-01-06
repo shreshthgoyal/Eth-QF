@@ -48,7 +48,7 @@ const Features = () => {
 
         <div className="features__feature feature--4">
           <div className="feature__icon-wrapper flex f_logo" data-aos="fade-left">
-          <i class="fas fa-search-dollar"></i>
+          <i className="fas fa-search-dollar"></i>
           </div>
           <h3 className="feature__title">Real Value</h3>
           <p className="feature__paragraph">

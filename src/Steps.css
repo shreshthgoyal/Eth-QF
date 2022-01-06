@@ -6,6 +6,7 @@
   text-align: center;
   margin-top: 3em;
 }
+
 .process__item {
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -14,7 +15,7 @@
   text-align: center;
   position: relative;
   padding: 15px 35px;
-  font-size: 3em;
+  font-size: 2em;
   color: #003c71;
   transition: 0.4s ease-in-out;
 }
@@ -39,7 +40,7 @@
   font-family: "Roboto Condensed";
   font-weight: 700;
   letter-spacing: 1.5px;
-  font-size: 35px;
+  font-size: 1em;
   color: #003c71;
   text-transform: uppercase;
   margin-top: 30px;

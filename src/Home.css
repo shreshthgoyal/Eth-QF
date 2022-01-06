@@ -513,7 +513,7 @@ html {
   
   /* Hero container */
   .hero__container {
-    height: 80vh;
+    height: 100vh;
     flex-direction: column;
     justify-content: center;
   }
@@ -527,7 +527,7 @@ html {
   }
   
   .hero__text {
-    width: min(40.125rem, 300%);
+    width: min(40.125rem, 100%);
   }
   
   .hero__title {
@@ -646,20 +646,27 @@ html {
     grid-template-columns: repeat(auto-fit, minmax(min(21.875rem, 100%), 1fr));
     justify-content: center;
     gap: 1.8rem;
+    border-radius: 1.25rem;
+
   }
   
   .portfolio__card {
     position: relative;
     border-radius: 1.25rem;
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
   }
   
-  .card__image {
+  .portfolio__card .card__image {
     width: 100%;
-    height: 25rem;
+    height: 20rem;
     object-fit: cover;
     border-radius: inherit;
+    transition: all 0.2s;
+    display: block;
   }
-  
+
   .card__content {
     margin-top: 1.5rem;
     text-align: left;
