@@ -1,0 +1,51 @@
+.filter-options{
+    margin-top: 15px;
+    line-height: 1.8;
+
+}
+
+.filter-header{
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+  
+  
+  article {
+    position: relative;
+    width: 100px;
+    height: 45px;
+    margin: 5px;
+    float: left;
+    border: 2px solid #4654ec;
+    box-sizing: border-box;
+    border-radius: 7px;
+  }
+  
+  article div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 25px;
+    transition: .5s ease;
+  }
+  
+  article input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 140px;
+    height: 100px;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  input[type=checkbox]:checked ~ div {
+    background-color: #4654ec;
+    color: white;
+    outline: none;
+  }
+  
+  

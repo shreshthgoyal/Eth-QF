@@ -19,7 +19,7 @@ const Home = () => {
             Going forward with the community. <br /> This is a platform which provides funding for projects through Quadratic funding.
         </p>
         <a href="#" className="hero__cta cta cta--primary">List a Project</a> 
-        <a href="#" className="hero__cta cta cta--primary bt2">Fund a Project</a>
+        <a href="/projects" className="hero__cta cta cta--primary bt2">Fund a Project</a>
       </div>
 
       <div className="hero__image-wrapper">

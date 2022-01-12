@@ -1,4 +1,3 @@
-  
   .navbar {
     height: 80px;
     display: flex;
@@ -6,7 +5,7 @@
     align-items: center;
     font-size: 1.2rem;
     position: sticky;
-    background: hsl(230, 43%, 97%);
+    background: hsl(231, 47%, 97%);
     top: 0;
     z-index: 20;
   }
