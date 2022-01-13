@@ -1,0 +1,192 @@
+
+.card-container{
+  position: relative;
+}
+
+.card-container .card{
+  position: relative;
+  width: 320px;
+  height: 450px;
+  background: #36454f;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.card-container .card:before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #4654ec;
+  clip-path: circle(150px at 80% 20%);
+  transition: 0.5s ease-in-out;
+}
+
+.card-container .card:hover:before{
+  clip-path: circle(300px at 80% -20%);
+}
+
+.card-container .card:after{
+  content: '';
+  position: absolute;
+  top: 30%;
+  left: -20%;
+  font-size: 12em;
+  font-weight: 800;
+  font-style: italic;
+  color: rgba(255,255,25,0.05)
+}
+
+.card-container .card .imgBx{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 100%;
+  height: 220px;
+  transition: 0.5s;
+}
+
+.card-container .card:hover .imgBx{
+  top: 0%;
+  transform: translateY(0%);
+    
+}
+
+.card-container .card .imgBx img{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-25deg);
+  width: 270px;
+}
+
+.card-container .card .contentBx{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  transition: 1s;
+  z-index: 10;
+}
+
+.card-container .card:hover .contentBx{
+  height: 210px;
+}
+
+.card-container .card .contentBx h2{
+  position: relative;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #fff;
+  margin: 0;
+}
+
+.card-container .card .contentBx .project-manager, .card-container .card .contentBx .project-description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 20px;
+  transition: 0.5s;opacity: 0;
+  visibility: hidden;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 1em;
+  margin-bottom: 1.2em;
+}
+
+.card-container .card:hover .contentBx .project-manager{
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0.5s;
+}
+
+.card-container .card:hover .contentBx .project-description{
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0.6s;
+}
+
+.card-container .card .contentBx .project-manager, .card-container .card .contentBx .project-description{
+  color: #fff;
+  font-weight: 300;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-right: 10px;
+}
+
+.card-container .card .contentBx .project-manager span{
+  width: 26px;
+  height: 26px;
+  text-align: center;
+  line-height: 26px;
+  font-size: 14px;
+  display: inline-block;
+ color: #111;
+  background: #fff;
+  margin: 0 5px;
+  transition: 0.5s;
+  color: #111;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.card-container .card .contentBx .project-manager span:hover{
+  background: #9bdc28;
+}
+
+
+
+
+.card-container .card .contentBx .contribute{
+  display: inline-block;
+  padding: 10px 20px;
+  background: #fff;
+  border-radius: 4px;
+  margin-top: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  color: #111;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 0.5s;
+  margin-top: 0;
+}
+
+.card-container .card:hover .contentBx .contribute{
+  opacity: 1;
+  transform: translateY(0px);
+  transition-delay: 0.75s;
+  
+}
+
+.card-container .card .contentBx .contribute:hover{
+  background: #4654ec;
+  color: white;
+  transition-delay: 0s;
+}
+
+a{
+  color: white;
+}
+
+
+@media screen and (max-width: 800px){
+  .card-container .card .imgBx{
+    position:absolute;
+    top: 5%;
+    transform: translateY(0%);
+  }
+  .card-container .card .contentBx{
+    position:absolute;
+    top: 50%;
+  }
+  .card-container .card .contentBx .project-manager, .card-container .card .contentBx .contribute, .card-container .card .contentBx .project-description{
+    visibility: visible;
+    opacity: 1; 
+  }
+}

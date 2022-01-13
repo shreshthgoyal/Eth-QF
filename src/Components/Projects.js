@@ -72,7 +72,7 @@ const Projects = () => {
           </div>
     
           <div className="portfolio__footer">
-            <a href="#" className="portfolio__link cta cta--link">
+            <a href="/projects" className="portfolio__link cta cta--link">
               View all
               <svg className="testimonial__link__icon cta--link-icon" viewBox="0 0 17 14" aria-hidden="true" focusable='false'>
                 <path d="M1 7.375L16 7.375M16 7.375L10.375 1.75M16 7.375L10.375 13" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
