@@ -1,18 +1,18 @@
 import './ProjectCard.css';
 const ProjectCard = ({project}) => {
     return(
-        <div class="card-container">
-            <div class="card">
-                <div class="imgBx">
+        <div className="card-container">
+            <div className="card">
+                <div className="imgBx">
                     <img src="https://assets.codepen.io/4164355/shoes.png" />
                 </div>
-                <div class="contentBx">
+                <div className="contentBx">
                   
                    <a href={`${project.html_url}`} alt="View repo"> <h2>{project.name}</h2> </a>
-                    <div class="project-manager">
+                    <div className="project-manager">
                        <a href={`${project.owner.html_url}`}> {project.owner.login} </a>
                     </div>
-                    <div class="project-description">
+                    <div className="project-description">
                         {project.description}
                     </div>
                     <a href="#" className="contribute">Contribute</a>

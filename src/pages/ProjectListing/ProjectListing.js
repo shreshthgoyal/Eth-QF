@@ -1,11 +1,11 @@
 import { useState, useEffect} from "react";
 
-import ProjectCard from "../components/ProjectCard";
-import SearchBar from "../components/SearchBar";
-import Filter from "../components/Filter";
-import Footer from "../Footer";
-import Navbar from "../Navbar";
-import { getProjectData } from "../data/ProjectData";
+import ProjectCard from "../../Components/ProjectCard/ProjectCard";
+import SearchBar from "../../Components/SearchBar/SearchBar";
+import Filter from "../../Components/Filter/Filter";
+import Footer from "../../Components/Footer/Footer";
+import Navbar from "../../Components/Navbar/Navbar";
+import { getProjectData } from "../../data/ProjectData";
 
 
 import './ProjectListing.css';
@@ -50,11 +50,11 @@ const ProjectListing =  () => {
             
             <div className="project-header">
                 <div className="project-header-container"></div>
-                <div class="project-header-section">
-                    <div class="box">
+                <div className="project-header-section">
+                    <div className="box">
 
-                        <div class="title">
-                            <span class="block"></span>
+                        <div className="title">
+                            <span className="block"></span>
                             <h1>Projects<span></span></h1>
                         </div>
 
@@ -82,7 +82,7 @@ const ProjectListing =  () => {
                                     return project; */}
                             })
                             .map((project) => (
-                            <ProjectCard project={project} />
+                            <ProjectCard project={project} key={project.id}/>
                         ))}
 
                         </div>

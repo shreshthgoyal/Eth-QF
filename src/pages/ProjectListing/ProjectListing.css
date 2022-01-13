@@ -5,22 +5,18 @@ body {
     overflow-x: hidden;
   }
 
-
-
-
 .project-header-container {
   position: relative;
   left: 0;
   top: 0;
   width: 100vw;
   height: 70vh;
-  background-image: url("https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80") ;
+  background-image: url("https://images.unsplash.com/photo-1483638994033-15b73fe7af18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80") ;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  filter: blur(2px);
+  filter: blur(5px);
   }
-
 
   .project-nav{
     margin-top:0;
@@ -65,7 +61,7 @@ body {
   .block {
     width: 0%;
     height: inherit;
-    background: #ffb510;
+    background: var(--clr-primary);
     position: absolute;
     animation: mainBlock 2s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
     display: flex;
@@ -90,7 +86,7 @@ body {
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
-    background: #ffb510;
+    background: var(--clr-primary);
     -webkit-animation: load 0.6s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
     animation: popIn 0.8s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
     animation-delay: 2s;
@@ -127,14 +123,14 @@ body {
     0% {
       width: 0px;
       height: 0px;
-      background: #e9d856;
+      background: var(--clr-primary);
       border: 0px solid #ddd;
       opacity: 0;
     }
     50% {
       width: 8px;
       height: 8px;
-      background: #e9d856;
+      background:var(--clr-primary);
       opacity: 1;
       bottom: 35px;
     }
@@ -152,7 +148,7 @@ body {
     100% {
       width: 7px;
       height: 7px;
-      background: #e9d856;
+      background: var(--clr-primary);
       border: 0px solid #222;
       bottom: 30px;
     }

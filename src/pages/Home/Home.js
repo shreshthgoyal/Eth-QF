@@ -1,11 +1,11 @@
 import "./Home.css";
-import Navbar from "./Components/Navbar";
-import Footer from "./Components/Footer";
-import Features from "./Components/Features";
-import Steps from "./Components/Steps";
-import Projects from "./Components/Projects";
-import Stats from "./Components/Stats";
-import Banner from "./Components/Banner";
+import Navbar from "../../Components/Navbar/Navbar";
+import Footer from "../../Components/Footer/Footer.js";
+import Features from "../../Components/Features/Features.js";
+import Steps from "../../Components/Steps/Steps.js";
+import Projects from "../../Components/Projects/Projects.js";
+import Stats from "../../Components/Stats/Stats.js";
+import Banner from "../../Components/Banner/Banner.js";
 
 const Home = () => {
     return (

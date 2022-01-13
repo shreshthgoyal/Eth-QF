@@ -1,13 +1,12 @@
   .navbar {
     height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-size: 1.2rem;
-    position: sticky;
     background: hsl(231, 47%, 97%);
     top: 0;
     z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .nav-container {
@@ -16,7 +15,6 @@
     align-items: center;
     width: 100%;
     height: 80px;
-    max-width: 1500px;
   }
   
   .main-container{
@@ -92,7 +90,6 @@
   }
   
   @media screen and (max-width: 960px) {
-    
     .nav-menu {
       display: flex;
       flex-direction: column;

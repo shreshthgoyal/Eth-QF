@@ -1,6 +1,7 @@
 import "./Stats.css";
 import React from "react";
 import CountTo from 'react-count-to';
+import {Link} from "react-router-dom";
 
 class Stats extends React.Component {
   
@@ -26,12 +27,12 @@ class Stats extends React.Component {
         <h2 className="features__title title-primary"><CountTo to= {parseInt(number,10)} speed={11000} /></h2>
       </div> 
       <div className="portfolio__footer">
-             <a href="#" className="portfolio__link cta cta--link">
+             <Link to="/sponsor" className="portfolio__link cta cta--link">
               Become a sponsor
               <svg className="testimonial__link__icon cta--link-icon" viewBox="0 0 17 14" aria-hidden="true" focusable='false'>
                 <path d="M1 7.375L16 7.375M16 7.375L10.375 1.75M16 7.375L10.375 13" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
-            </a>
+            </Link>
           </div>    
           </div>
           </section>

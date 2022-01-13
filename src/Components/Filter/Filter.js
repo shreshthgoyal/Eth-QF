@@ -10,13 +10,12 @@ const Filter = ({selectedCategories, setSelectedCategories}) => {
             <div className="filter-options">
                 {categories.map(category => {
                     return(
-                        <div className="filter-option">
-                            <article class="feature1">
+                        <div className="filter-option" key={category}>
+                            <article className="feature1">
                                 <input type="checkbox" id={`${category}`} onClick={() =>{
                                 setSelectedCategories({...selectedCategories,
                                 [category]: !selectedCategories[category]
                                 })
-                                console.log(selectedCategories);
                             }} />
                                 <div>
                                 <span>
@@ -33,7 +32,6 @@ const Filter = ({selectedCategories, setSelectedCategories}) => {
             </div>
         </div>
     )
-    
 }
 
 export default Filter;

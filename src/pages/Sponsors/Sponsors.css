@@ -1,0 +1,28 @@
+.sponsors {
+  margin-top: 17em;
+}
+
+.stat {
+  text-align: center;
+  font-size: 3em;
+  margin-top: 2em;
+}
+
+.u {
+text-align: center;
+}
+
+.spo {
+  margin-left: 10em;
+  margin-top: 2em;
+}
+
+@media screen and (max-width: 1020px) {
+  .s{
+    text-align: center;
+    align-items: center;
+  }
+.stat{
+  margin-top: -20%;
+}
+}

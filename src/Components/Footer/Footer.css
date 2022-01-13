@@ -1,7 +1,6 @@
 .footer {
     background-color: var(--clr-white);
     padding-top: clamp(2rem, 10vw, 5rem);
-    padding-bottom: clamp(2rem, 10vw, 5rem);
     margin-top: 2em;
   }
   
