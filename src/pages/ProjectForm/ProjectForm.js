@@ -53,7 +53,7 @@ const ProjectForm = () => {
      getData();
    getProject();
    return ( setRepo([]))
-    }, [verified])
+    }, [userName, verified])
     
     return (
         <div>
