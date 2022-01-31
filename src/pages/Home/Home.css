@@ -137,7 +137,9 @@ html {
     max-width: 71.25rem;
     margin: auto;
   }
-  
+   .lp {
+    margin-top: -6em;
+   }
   .container--px {
     padding-left: 1rem;
     padding-right: 1rem;
