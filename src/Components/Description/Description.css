@@ -1,33 +1,36 @@
 @import url("https://fonts.googleapis.com/css?family=Fjalla+One|Montserrat:300,400,700,800|Open+Sans:300");
-body {
+.bodyDesc {
   background-image: linear-gradient(
     to right bottom,
-    #b91eda,
-    #a02ae0,
-    #8234e5,
-    #5d3be8,
-    #1241eb
+    #1e5ada,
+    #4571ec,
+    #637ce9,
+    #7152ee,
+    #567aff
   );
   height: 100%;
   margin: 0;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
-main {
+.mainDesc {
   max-width: 720px;
-  margin: 5% auto;
+  /* margin: 5% auto; */
+  margin-left: auto;
+  margin-right: auto;
 }
-.card {
+.cardDesc {
+  padding-top: 5%;
   box-shadow: 0 6px 6px rgba(0, 0, 0, 0.3);
   transition: 200ms;
   background: #fff;
 }
-.card .card__title {
+.cardDesc .cardDesc__title {
   display: flex;
   align-items: center;
   padding: 30px 40px;
 }
-.card .card__title h3 {
+.cardDesc .cardDesc__title h3 {
   flex: 0 1 200px;
   text-align: right;
   margin: 0;
@@ -37,31 +40,31 @@ main {
   font-size: 20px;
   text-transform: uppercase;
 }
-.card .card__title .icon {
+.cardDesc .cardDesc__title .iconDesc {
   flex: 1 0 10px;
   background: #115dd8;
   color: #fff;
   padding: 10px 10px;
   transition: 200ms;
 }
-.card .card__title .icon > a {
+.cardDesc .cardDesc__title .iconDesc > a {
   color: #fff;
 }
-.card .card__title .icon:hover {
+.cardDesc .cardDesc__title .iconDesc:hover {
   background: #252525;
 }
-.card .card__body {
+.cardDesc .cardDesc__body {
   padding: 0 40px;
   display: flex;
   flex-flow: row no-wrap;
   margin-bottom: 25px;
 }
-.card .card__body > .half {
+.cardDesc .cardDesc__body > .halfDesc {
   box-sizing: border-box;
   padding: 0 15px;
   flex: 1 0 50%;
 }
-.card .card__body .featured_text h1 {
+.cardDesc .cardDesc__body .featured_textDesc h1 {
   margin: 0;
   padding: 0;
   font-weight: 800;
@@ -70,11 +73,11 @@ main {
   line-height: 50px;
   color: #181e28;
 }
-.card .card__body .featured_text p {
+.cardDesc .cardDesc__body .featured_textDesc p {
   margin: 0;
   padding: 0;
 }
-.card .card__body .featured_text p.sub {
+.cardDesc .cardDesc__body .featured_textDesc p.sub {
   font-family: "Montserrat", sans-serif;
   font-size: 26px;
   text-transform: uppercase;
@@ -82,24 +85,24 @@ main {
   font-weight: 300;
   margin-bottom: 5px;
 }
-.card .card__body .featured_text p.price {
+.cardDesc .cardDesc__body .featured_textDesc p.priceDesc {
   font-family: "Fjalla One", sans-serif;
   color: #252525;
   font-size: 26px;
 }
-.card .card__body .image {
+.cardDesc .cardDesc__body .imageDesc {
   padding-top: 15px;
   width: 100%;
 }
-.card .card__body .image img {
+.cardDesc .cardDesc__body .imageDesc img {
   display: block;
   max-width: 100%;
   height: auto;
 }
-.card .card__body .description {
+.cardDesc .cardDesc__body .descriptionDesc {
   margin-bottom: 25px;
 }
-.card .card__body .description p {
+.cardDesc .cardDesc__body .descriptionDesc p {
   margin: 0;
   font-family: "Open Sans", sans-serif;
   font-weight: 300;
@@ -107,36 +110,36 @@ main {
   font-size: 16px;
   color: #555;
 }
-.card .card__body span.stock {
+.cardDesc .cardDesc__body span.stockDesc {
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
   color: #a1cc16;
 }
-.card .card__body .reviews .stars {
+.cardDesc .cardDesc__body .reviewsDesc .starsDesc {
   display: inline-block;
   list-style: none;
   padding: 0;
 }
-.card .card__body .reviews .stars > li {
+.cardDesc .cardDesc__body .reviewsDesc .starsDesc > li {
   display: inline-block;
 }
-.card .card__body .reviews .stars > li .fa {
+.cardDesc .cardDesc__body .reviewsDesc .starsDesc > li .fa {
   color: #f7c01b;
 }
-.card .card__body .reviews > span {
+.cardDesc .cardDesc__body .reviewsDesc > span {
   font-family: "Open Sans", sans-serif;
   font-size: 14px;
   margin-left: 5px;
   color: #555;
 }
-.card .card__footer {
+.cardDesc .cardDesc__footer {
   padding: 30px 40px;
   display: flex;
   flex-flow: row no-wrap;
   align-items: center;
   position: relative;
 }
-.card .card__footer::before {
+.cardDesc .cardDesc__footer::before {
   content: "";
   position: absolute;
   display: block;
@@ -153,10 +156,10 @@ main {
     #ddd 100%
   );
 }
-.card .card__footer .recommend {
+.cardDesc .cardDesc__footer .recommendDesc {
   flex: 1 0 10px;
 }
-.card .card__footer .recommend p {
+.cardDesc .cardDesc__footer .recommendDesc p {
   margin: 0;
   font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
@@ -164,7 +167,7 @@ main {
   font-size: 14px;
   color: #555;
 }
-.card .card__footer .recommend h3 {
+.cardDesc .cardDesc__footer .recommendDesc h3 {
   margin: 0;
   font-size: 20px;
   font-family: "Montserrat", sans-serif;
@@ -172,7 +175,17 @@ main {
   text-transform: uppercase;
   color: #115dd8;
 }
-.card .card__footer .action button {
+.actionDesc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.actionDesc button {
+  margin: 5px;
+  margin-top: 15px;
+}
+.cardDesc .cardDesc__footer .actionDesc button {
   cursor: pointer;
   border: 1px solid #115dd8;
   padding: 14px 30px;
@@ -182,8 +195,31 @@ main {
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
   transition: 200ms;
+  font-weight: 800;
 }
-.card .card__footer .action button:hover {
+.cardDesc .cardDesc__footer .actionDesc button:hover {
   background: #fff;
   color: #115dd8;
+}
+.ownerDesc {
+  border-radius: 50%;
+  width: 50px;
+}
+.repolinkDesc {
+  color: #115dd8;
+  text-decoration: underline;
+}
+.tagsDesc {
+  width: 100px;
+  height: 45px;
+  margin: 5px;
+  float: left;
+  border: 2px solid #4654ec;
+  box-sizing: border-box;
+  border-radius: 7px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 25px;
 }
