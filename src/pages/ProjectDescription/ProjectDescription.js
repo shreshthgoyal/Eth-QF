@@ -22,25 +22,35 @@ const ProjectDescription = () => {
   const { id } = useParams();
 
   return (
-    <>
-    <div>
-      <div>
-        {projects.map((project) => {
-          if (project.id === parseInt(id)) {
-            return <h1 key= {project.id}>{project.name}</h1>;
-          }
-        })
-        }
-      </div>
-    </div>
+    // <div>
+    //   <h1>hello - {id}</h1>
+    //   <div>
+    //     {projects.map((project) => {
+    //       if (project.id === parseInt(id)) {
+    //         console.log(project.name);
+    //         return <h1 key={project.id}>{project.name}</h1>;
+    //       }
+    //     })}
+    //   </div>
+    // </div>
     <div>
       <div className="project-nav1">
         <Navbar />
       </div>
-      <Description className="description1" />
+      {projects.map((project) => {
+        if (project.id === parseInt(id)) {
+          return (
+            <Description
+              project={project}
+              key={project.id}
+              className="description1"
+            />
+          );
+        }
+      })}
+
       <Footer />
     </div>
-    </>
   );
 };
 
