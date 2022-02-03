@@ -1,8 +1,14 @@
-import { useState, useEffect } from "react";
 import "./Description.css";
-import Popup from "../Popup/Popup";
+import Popup from 'reactjs-popup';
+import Verify from '../Verify/Verify';
+import $ from 'jquery';
 
 const Description = ({ project }) => {
+ 
+ const click = () => {
+  $('.mainDesc').css("filter","blur(3px)");
+ }
+
   return (
     <div>
       <div className="bodyDesc">
@@ -92,7 +98,9 @@ const Description = ({ project }) => {
                   <div className="tagsDesc">tag 1</div>
                   <div className="tagsDesc">tag 2</div>
                 </div>
-                <button type="button">Contribute</button>
+                <Popup trigger={<button>Contribute </button>} onOpen = {click} closeOnEscape = {false} closeOnDocumentClick= {false} modal id="pop">
+                <Verify />
+                </Popup>
               </div>
             </div>
           </div>

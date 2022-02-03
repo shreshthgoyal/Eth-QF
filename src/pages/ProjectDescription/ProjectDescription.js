@@ -48,7 +48,6 @@ const ProjectDescription = () => {
           );
         }
       })}
-
       <Footer />
     </div>
   );

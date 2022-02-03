@@ -497,6 +497,13 @@ html {
     background-color: var(--clr-hero);
   }
   
+    /* Hero container */
+    .hero__container {
+      height: 100vh;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
   @media screen and (min-width: 40em) {
     .hero {
       height: calc(100vh - var(--header-height-d));
@@ -504,12 +511,7 @@ html {
     }
   }
   
-  /* Hero container */
-  .hero__container {
-    height: 100vh;
-    flex-direction: column;
-    justify-content: center;
-  }
+
   
   @media screen and (min-width: 40em) {
     .hero__container {

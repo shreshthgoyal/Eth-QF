@@ -1,15 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Fjalla+One|Montserrat:300,400,700,800|Open+Sans:300");
 .bodyDesc {
-  background-image: linear-gradient(
-    to right bottom,
-    #1e5ada,
-    #4571ec,
-    #637ce9,
-    #7152ee,
-    #567aff
-  );
-  height: 100%;
-  margin: 0;
+   height: 100%;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
@@ -18,9 +9,9 @@
   /* margin: 5% auto; */
   margin-left: auto;
   margin-right: auto;
+  padding-top: 5%;
 }
 .cardDesc {
-  padding-top: 5%;
   box-shadow: 0 6px 6px rgba(0, 0, 0, 0.3);
   transition: 200ms;
   background: #fff;
