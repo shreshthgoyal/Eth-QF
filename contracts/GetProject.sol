@@ -18,9 +18,15 @@ contract GetProject {
         string pitch;
         string githubLink;
         string category;
+        uint256 contributors;
+        uint256 matchingContributors;
+        uint256[] matchingContributions;
+        uint256 matchingSum;
+        uint256 matchingShare;
     }
 
     Project[] public projects;
+    mapping(uint256 => Project) public projectIdToProject;
 
     function listProject(
         string memory _title,
@@ -38,7 +44,12 @@ contract GetProject {
                 _title,
                 _pitch,
                 _githubLink,
-                _category
+                _category,
+                0,
+                0,
+                new uint256[](0),
+                0,
+                0
             )
         );
     }
