@@ -1,4 +1,5 @@
 import "./Description.css";
+import Popup from "../Popup/Popup";
 
 const Description = () => {
   return (
@@ -62,17 +63,20 @@ const Description = () => {
               </div>
             </div>
           </div>
+          
           <div className="card__footer">
             <div className="recommend">
               <p>Recommended by</p>
               <h3>Andrew Palmer</h3>
             </div>
             <div className="action">
-              <button type="button">Add to cart</button>
+      <Popup idMessage="hi" />
+
             </div>
           </div>
         </div>
       </main>
+
     </div>
   );
 };

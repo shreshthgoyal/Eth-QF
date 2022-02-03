@@ -17,6 +17,7 @@
     "isomorphic-fetch": "^3.0.0",
     "nodemon": "^2.0.15",
     "passport-github": "^1.1.0",
+    "prop-types": "^15.8.1",
     "query-string": "^7.1.0",
     "react": "^17.0.2",
     "react-bootstrap": "^2.1.1",

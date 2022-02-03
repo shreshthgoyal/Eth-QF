@@ -6,7 +6,6 @@ import ProjectForm from "./pages/ProjectForm/ProjectForm";
 import ProjectListing from "./pages/ProjectListing/ProjectListing";
 import Sponsors from "./pages/Sponsors/Sponsors";
 
-import Verify from "./Components/Verify/Verify";
 import ProjectDescription from "./pages/ProjectDescription/ProjectDescription";
 
 class App extends React.Component {
@@ -23,7 +22,6 @@ class App extends React.Component {
               element={<Sponsors number="205439" />}
             ></Route>
             <Route path="/projects" element={<ProjectListing />}></Route>
-            <Route path="/verify" element={<Verify />}></Route>
             <Route
               path="/description/:id"
               element={<ProjectDescription />}

@@ -1,18 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Fjalla+One|Montserrat:300,400,700,800|Open+Sans:300");
-body {
-  background-image: linear-gradient(
-    to right bottom,
-    #b91eda,
-    #a02ae0,
-    #8234e5,
-    #5d3be8,
-    #1241eb
-  );
-  height: 100%;
-  margin: 0;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
+
 main {
   max-width: 720px;
   margin: 5% auto;
