@@ -19,7 +19,6 @@ const ProjectListing =  () => {
     useEffect(() => {
         getProjects();
 
-
         const categories=["DeFi", "NFT", "Gaming", "Wallet", "Education"];
         const isSelected = {};
         categories.forEach(category => isSelected[category] = false  )

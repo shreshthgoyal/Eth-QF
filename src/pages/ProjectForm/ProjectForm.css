@@ -35,11 +35,18 @@
   color: #4f46a5;
 }
 
+.p {
+  margin-bottom: 10px;
+}
 .headero > h4 {
   margin-top: 10px;
   font-weight: normal;
   font-size: 15px;
   color: rgba(0, 0, 0, 0.4);
+}
+
+.dis {
+  opacity: 0.5;
 }
 
 .form {

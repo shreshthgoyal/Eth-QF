@@ -31,7 +31,7 @@ const onSuccess = response => {
         <div>
   <Navbar />
 <main className="main hero">
-    <div className="hero__container container container--px flex">
+    <div className="hero__container container container--px flex lp">
       <div className="hero__text">
         <h1 className="hero__title">We fund with the c<span className="hero__title-underline">ommunity.</span> For the c<span className="hero__title-underline">ommunity.</span></h1>
         <p className="hero__paragraph">

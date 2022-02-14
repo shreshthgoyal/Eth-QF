@@ -4,6 +4,7 @@ import Footer from "../../Components/Footer/Footer.js";
 import React, { useState }  from 'react';
 import axios from 'axios';
 import {useLocation} from 'react-router-dom';
+import ReCAPTCHA from "react-google-recaptcha";
 
 const ProjectForm = () => {
 
@@ -11,12 +12,17 @@ const ProjectForm = () => {
   const temp_code = location.state;
 
   const [userName, setUserName] = useState("");
+  const [verified, setVerified] = useState(false);
   const [val, setPro] = useState("");
   const [userRepo, setRepo] = useState([""]);
   const [category, setCat] = useState([""]);
   const [totalRepo, setVal] = useState();
   const categories=["DeFi", "NFT", "Gaming", "Wallet", "Education"];
 
+  const onChange = () => {
+    setVerified(true);
+    document.getElementById("btn-list").disabled = false;
+  }
   const addMessage = (newMessage) => setRepo(state => [...state, newMessage])
   const getData = async () => {
     const users = await axios({
@@ -47,7 +53,7 @@ const ProjectForm = () => {
      getData();
    getProject();
    return ( setRepo([]))
-    }, [userName])
+    }, [userName, verified])
     
     return (
         <div>
@@ -79,7 +85,13 @@ const ProjectForm = () => {
         }
       </select>   
       <input type="text" className="form-field animation a3" placeholder= "Other Links"/>
-      <input type="text" className="form-field animation a3" placeholder= "Twitter Handle"/>
+      <input type="text" className="form-field animation a3 p" placeholder= "Twitter Handle"/>
+      <ReCAPTCHA
+    sitekey="6Lf_B0QeAAAAACfFq7XiF_2J96rDJbMQClzXklgB"
+    onChange={onChange}
+    className="animation a3"
+  />
+      <button className="animation a3" id="btn-list" disabled>List</button>
     </div>
   </div>
   <div className="righto"></div>
