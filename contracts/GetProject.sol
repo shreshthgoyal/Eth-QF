@@ -38,7 +38,7 @@ contract GetProject {
         projects.push(
             Project(
                 _projectId,
-                owner,
+                msg.sender,
                 0,
                 ProjectState.ACTIVE,
                 _title,
