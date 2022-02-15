@@ -18,13 +18,10 @@ const ProjectListing =  () => {
 
     useEffect(() => {
         getProjects();
-
         const categories=["DeFi", "NFT", "Gaming", "Wallet", "Education"];
         const isSelected = {};
         categories.forEach(category => isSelected[category] = false  )
         setSelectedCategories(isSelected);
-
-
       }, []);
 
       
@@ -45,8 +42,7 @@ const ProjectListing =  () => {
     return(
         <div className="wrapper">
         <div className="project-nav"><Navbar /></div>
-        
-            
+            {console.log(123)}
             <div className="project-header">
                 <div className="project-header-container"></div>
                 <div className="project-header-section">

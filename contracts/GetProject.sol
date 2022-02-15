@@ -20,7 +20,6 @@ contract GetProject {
         string category;
         uint256 contributors;
         uint256 matchingContributors;
-        uint256[] matchingContributions;
         uint256 matchingSum;
         uint256 matchingShare;
     }
@@ -47,7 +46,6 @@ contract GetProject {
                 _category,
                 0,
                 0,
-                new uint256[](0),
                 0,
                 0
             )

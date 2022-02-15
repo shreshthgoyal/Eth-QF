@@ -16,7 +16,7 @@ contract Funding is GetProject {
 
         if (isMatchingRound) {
             projects[_projectId].matchingContributors++;
-            projects[_projectId].matchingContributions.push(msg.value);
+            // projects[_projectId].matchingContributions.push(msg.value);
         }
     }
 
@@ -42,15 +42,11 @@ contract Funding is GetProject {
         uint256 totalMatchingSum = 0;
         for (uint256 i = 0; i < projects.length; i++) {
             uint256 individualSum = 0;
-            for (
-                uint256 j = 0;
-                j < projects[i].matchingContributions.length;
-                j++
-            ) {
-                uint256 sq = (
-                    sqrt(projects[i].matchingContributions[j] * 10000)
-                ) / 100;
-                individualSum = individualSum + sq;
+            for (uint256 j = 0; j < projects[i].matchingContributors; j++) {
+                // uint256 sq = (
+                //     sqrt(projects[i].matchingContributions[j] * 10000)
+                // ) / 100;
+                // individualSum = individualSum + sq;
             }
             individualSum = individualSum * individualSum;
             projects[i].matchingSum = individualSum;

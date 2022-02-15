@@ -6,7 +6,7 @@ import axios from 'axios';
 import {useLocation} from 'react-router-dom';
 import ReCAPTCHA from "react-google-recaptcha";
 
-const ProjectForm = () => {
+const ProjectForm = ({contract, currentAccount}) => {
 
   const location = useLocation();
   const temp_code = location.state;
@@ -21,7 +21,6 @@ const ProjectForm = () => {
 
   const onChange = () => {
     setVerified(true);
-    document.getElementById("btn-list").disabled = false;
   }
   const addMessage = (newMessage) => setRepo(state => [...state, newMessage])
   const getData = async () => {
@@ -91,7 +90,11 @@ const ProjectForm = () => {
     onChange={onChange}
     className="animation a3"
   />
-      <button className="animation a3" id="btn-list" disabled>List</button>
+      {verified ? <button className="animation a3 show" type="submit" id="fb" onClick={() => {
+      contract.methods.listProject(val, "First", "link", category).send({from : currentAccount}); 
+     contract.methods.getAllProjects().call().then(i => console.log(i));
+      }} >
+        List</button>:null}
     </div>
   </div>
   <div className="righto"></div>
