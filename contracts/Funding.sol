@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
+pragma experimental ABIEncoderV2;
 
 import "./GetProject.sol";
 
@@ -16,7 +17,8 @@ contract Funding is GetProject {
 
         if (isMatchingRound) {
             projects[_projectId].matchingContributors++;
-            // projects[_projectId].matchingContributions.push(msg.value);
+            uint256 sq = (sqrt(msg.value * 10000)) / 100;
+            projects[_projectId].rootSum += sq;
         }
     }
 
@@ -41,16 +43,8 @@ contract Funding is GetProject {
     function clrMatching() public {
         uint256 totalMatchingSum = 0;
         for (uint256 i = 0; i < projects.length; i++) {
-            uint256 individualSum = 0;
-            for (uint256 j = 0; j < projects[i].matchingContributors; j++) {
-                // uint256 sq = (
-                //     sqrt(projects[i].matchingContributions[j] * 10000)
-                // ) / 100;
-                // individualSum = individualSum + sq;
-            }
-            individualSum = individualSum * individualSum;
-            projects[i].matchingSum = individualSum;
-            totalMatchingSum = totalMatchingSum + individualSum;
+            projects[i].matchingSum = projects[i].rootSum * projects[i].rootSum;
+            totalMatchingSum = totalMatchingSum + projects[i].matchingSum;
         }
 
         for (uint256 i = 0; i < projects.length; i++) {

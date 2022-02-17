@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
+pragma experimental ABIEncoderV2;
 
 contract GetProject {
     address public owner = msg.sender;
@@ -20,6 +21,7 @@ contract GetProject {
         string category;
         uint256 contributors;
         uint256 matchingContributors;
+        uint256 rootSum;
         uint256 matchingSum;
         uint256 matchingShare;
     }
@@ -44,6 +46,7 @@ contract GetProject {
                 _pitch,
                 _githubLink,
                 _category,
+                0,
                 0,
                 0,
                 0,

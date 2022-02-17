@@ -21,13 +21,13 @@ contract('GetProject', async ([owner, alice]) =>  {
       assert.equal(project.projectId, 0);
       assert.equal(project.contributors, 0);
       assert.equal(project.matchingContributors, 0);
+      assert.equal(project.rootSum, 0);
       assert.equal(project.matchingShare, 0);
       assert.equal(project.matchingSum, 0);
     }
     catch(err)
     {
       assert.equal(err,null,err);
-      console.log(err);
     }
   })
 
