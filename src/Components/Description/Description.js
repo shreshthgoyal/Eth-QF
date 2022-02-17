@@ -8,6 +8,7 @@ import React, { useState }  from 'react';
 const Description = ({ project }) => {
  
   const [blurb, setBlurb] = useState("");
+  const [avatar, setAvatar] = useState("");
 
 
  const click = () => {
@@ -20,11 +21,14 @@ const Description = ({ project }) => {
       url: `https://api.github.com/repos/${project.githubLink}/${project.title}`,
       method: 'get',
     });
-    setBlurb(users.data.description);}
+    setBlurb(users.data.description);
+    setAvatar(users.data.owner.avatar_url)
+  }
    };
 
+
    React.useEffect(() => {
-     getInfo()
+     getInfo();
    },[])
 
   return (
@@ -99,11 +103,11 @@ const Description = ({ project }) => {
             <div className="cardDesc__footer">
               <div className="recommendDesc">
                 <p>By</p>
-                {/* <img
-                  src={project.owner.avatar_url}
+                <img
+                  src={avatar !== "" ? avatar : null}
                   alt="owner"
                   className="ownerDesc"
-                ></img> */}
+                ></img>
                 <a href={(project.githubLink != "") ? `https://github.com/${project.githubLink}/` : ""} target="_blank" rel="noreferrer">
                   <h3>{project.githubLink}</h3>
                 </a>
