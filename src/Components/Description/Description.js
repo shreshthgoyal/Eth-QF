@@ -2,12 +2,30 @@ import "./Description.css";
 import Popup from 'reactjs-popup';
 import Verify from '../Verify/Verify';
 import $ from 'jquery';
+import axios from 'axios';
+import React, { useState }  from 'react';
 
 const Description = ({ project }) => {
  
+  const [blurb, setBlurb] = useState("");
+
+
  const click = () => {
   $('.mainDesc').css("filter","blur(3px)");
  }
+
+ const getInfo = async () => {
+  if(project.title !== "")
+   { const users = await axios({
+      url: `https://api.github.com/repos/${project.githubLink}/${project.title}`,
+      method: 'get',
+    });
+    setBlurb(users.data.description);}
+   };
+
+   React.useEffect(() => {
+     getInfo()
+   },[])
 
   return (
     <div>
@@ -31,15 +49,12 @@ const Description = ({ project }) => {
               <div className="halfDesc">
                 <div className="descriptionDesc">
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Vero voluptatem nam pariatur voluptate perferendis,
-                    asperiores aspernatur! Porro similique consequatur, nobis
-                    soluta minima.
+                   {blurb}
                     <br />
                     <br />
                   </p>
                   <p>
-                    <a href={project.githubLink} className="repolinkDesc">
+                    <a href={`https://github.com/${project.githubLink}/${project.title}`} className="repolinkDesc" target="_blank" rel="noopener noreferrer">
                       Github Repo
                     </a>
                   </p>
@@ -89,8 +104,8 @@ const Description = ({ project }) => {
                   alt="owner"
                   className="ownerDesc"
                 ></img> */}
-                <a href={project.projectOwner} target="blank">
-                  <h3>{project.projectOwner}</h3>
+                <a href={(project.githubLink != "") ? `https://github.com/${project.githubLink}/` : ""} target="_blank" rel="noreferrer">
+                  <h3>{project.githubLink}</h3>
                 </a>
               </div>
               <div className="actionDesc">

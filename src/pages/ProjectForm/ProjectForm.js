@@ -12,6 +12,7 @@ const ProjectForm = ({contract, currentAccount}) => {
   const temp_code = location.state;
 
   const [userName, setUserName] = useState("");
+  const [pitch, setPitch] = useState("");
   const [verified, setVerified] = useState(false);
   const [val, setPro] = useState("");
   const [userRepo, setRepo] = useState([""]);
@@ -23,6 +24,8 @@ const ProjectForm = ({contract, currentAccount}) => {
     setVerified(true);
   }
   const addMessage = (newMessage) => setRepo(state => [...state, newMessage])
+
+ 
   const getData = async () => {
     const users = await axios({
       url: 'https://api.github.com/user',
@@ -65,8 +68,8 @@ const ProjectForm = ({contract, currentAccount}) => {
     </div>
     <div className="form">
       <input type="text" className="form-field animation a3" placeholder= {userName} disabled/>
-      <select className="form-field animation a4 project" onChange={(e) => setPro(e.target.value)}>
-      <option value= "">Choose Your Project</option>
+      <select className="form-field animation a4 project" onChange={(e) => {setPro(e.target.value); }}>
+      <option value= "">{val !== "" ? val : "Choose Your Project"}</option>
         {
           userRepo.map(item => {
             return (<option key={item} value={item}>{item}</option>);
@@ -74,7 +77,7 @@ const ProjectForm = ({contract, currentAccount}) => {
         }
       </select>   
       <input type="text" className="form-field animation a3" placeholder= {(val != "") ? `https://github.com/${userName}/${val}` : "Open Source URL"} disabled/>
-      <input type="text" className="form-field animation a3" placeholder= "Pitch"/>
+      <input type="text" className="form-field animation a3" placeholder= "Pitch" onChange={(e) => setPitch(e.target.value)}/>
       <select className="form-field animation a4 project" onChange={(e) => setCat(e.target.value)}>
       <option value= "">Choose Project Category</option>
         {
@@ -83,16 +86,14 @@ const ProjectForm = ({contract, currentAccount}) => {
         })
         }
       </select>   
-      <input type="text" className="form-field animation a3" placeholder= "Other Links"/>
-      <input type="text" className="form-field animation a3 p" placeholder= "Twitter Handle"/>
+      <br />
       <ReCAPTCHA
     sitekey="6Lf_B0QeAAAAACfFq7XiF_2J96rDJbMQClzXklgB"
     onChange={onChange}
     className="animation a3"
   />
       {verified ? <button className="animation a3 show" type="submit" id="fb" onClick={() => {
-      contract.methods.listProject(val, "First", "link", category).send({from : currentAccount}); 
-     contract.methods.getAllProjects().call().then(i => console.log(i));
+      contract.methods.listProject(val, pitch, (val !== "") ? userName : "", category).send({from : currentAccount}); 
       }} >
         List</button>:null}
     </div>
