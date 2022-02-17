@@ -20,6 +20,7 @@ contract GetProject {
         string category;
         uint256 contributors;
         uint256 matchingContributors;
+        uint256 rootSum;
         uint256 matchingSum;
         uint256 matchingShare;
     }
@@ -44,6 +45,7 @@ contract GetProject {
                 _pitch,
                 _githubLink,
                 _category,
+                0,
                 0,
                 0,
                 0,
