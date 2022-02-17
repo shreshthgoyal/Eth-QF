@@ -18,8 +18,8 @@ const Description = ({ project }) => {
             <div className="cardDesc__body">
               <div className="halfDesc">
                 <div className="featured_textDesv">
-                  <h1>{project.name}</h1>
-                  <p className="subDesc">{project.description}</p>
+                  <h1>{project.title}</h1>
+                  <p className="subDesc">{project.pitch}</p>
                 </div>
                 <div className="imageDesc">
                   <img
@@ -39,7 +39,7 @@ const Description = ({ project }) => {
                     <br />
                   </p>
                   <p>
-                    <a href={project.html_url} className="repolinkDesc">
+                    <a href={project.githubLink} className="repolinkDesc">
                       Github Repo
                     </a>
                   </p>
@@ -84,19 +84,18 @@ const Description = ({ project }) => {
             <div className="cardDesc__footer">
               <div className="recommendDesc">
                 <p>By</p>
-                <img
+                {/* <img
                   src={project.owner.avatar_url}
                   alt="owner"
                   className="ownerDesc"
-                ></img>
-                <a href={project.owner.html_url} target="blank">
-                  <h3>{project.owner.login}</h3>
+                ></img> */}
+                <a href={project.projectOwner} target="blank">
+                  <h3>{project.projectOwner}</h3>
                 </a>
               </div>
               <div className="actionDesc">
                 <div className="tagContainDesc">
-                  <div className="tagsDesc">tag 1</div>
-                  <div className="tagsDesc">tag 2</div>
+                  <div className="tagsDesc">{project.category}</div>
                 </div>
                 <Popup trigger={<button>Contribute </button>} onOpen = {click} closeOnEscape = {false} closeOnDocumentClick= {false} modal id="pop">
                 <Verify />

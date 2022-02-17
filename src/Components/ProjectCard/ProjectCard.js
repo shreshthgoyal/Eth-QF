@@ -8,15 +8,15 @@ const ProjectCard = ({ project }) => {
           <img src="https://assets.codepen.io/4164355/shoes.png" />
         </div>
         <div className="contentBx">
-          <a href={`${project.html_url}`} alt="View repo">
+          <a href={`${project.githubLink}`} alt="View repo">
             {" "}
-            <h2>{project.name}</h2>{" "}
+            <h2>{project.title}</h2>{" "}
           </a>
           <div className="project-manager">
-            <a href={`${project.owner.html_url}`}> {project.owner.login} </a>
+            {/* <a href={`${project.owner.html_url}`}> {project.projectOwner} </a> */}
           </div>
-          <div className="project-description">{project.description}</div>
-          <Link to={`/description/${project.id}`} className="contribute">
+          <div className="project-description">{project.pitch}</div>
+          <Link to={`/description/${project[0]}`} className="contribute">
             Contribute
           </Link>
         </div>

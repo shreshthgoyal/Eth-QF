@@ -1,6 +1,6 @@
 import './Filter.css';
 
-const Filter = ({selectedCategories, setSelectedCategories}) => {
+const Filter = ({selectedCategories, setSelectedCategories, select, setSelect}) => {
     const categories=["DeFi", "NFT", "Gaming", "Wallet", "Education", "Media"];
     return(
         <div className="filter-wrapper">
@@ -15,8 +15,10 @@ const Filter = ({selectedCategories, setSelectedCategories}) => {
                                 <input type="checkbox" id={`${category}`} onClick={() =>{
                                 setSelectedCategories({...selectedCategories,
                                 [category]: !selectedCategories[category]
+                                
                                 })
-                            }} />
+                            }}
+                            />
                                 <div>
                                 <span>
                                     {category}
