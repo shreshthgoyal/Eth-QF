@@ -15,6 +15,10 @@ const Description = ({ project }) => {
   $('.mainDesc').css("filter","blur(3px)");
  }
 
+ const back = () => {
+  $('.mainDesc').css("filter","blur(0px)");
+ }
+
  const getInfo = async () => {
   if(project.title !== "")
    { const users = await axios({
@@ -116,7 +120,7 @@ const Description = ({ project }) => {
                 <div className="tagContainDesc">
                   <div className="tagsDesc">{project.category}</div>
                 </div>
-                <Popup trigger={<button>Contribute </button>} onOpen = {click} closeOnEscape = {false} closeOnDocumentClick= {false} modal id="pop">
+                <Popup trigger={<button>Contribute </button>} onOpen = {click} onClose = {back} closeOnEscape = {false} closeOnDocumentClick= {false} modal id="pop">
                 <Verify />
                 </Popup>
               </div>

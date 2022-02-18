@@ -99,6 +99,10 @@ function App() {
               path="/description/:id"
               element={<ProjectDescription />}
             ></Route>
+             <Route
+              path="/description/:id/:fund"
+              element={<ProjectDescription />}
+            ></Route>
           </Routes>
         </div>
       </Router>
