@@ -4,8 +4,11 @@ import Verify from '../Verify/Verify';
 import $ from 'jquery';
 import axios from 'axios';
 import React, { useState }  from 'react';
+import Web3 from 'web3';
 
-const Description = ({ project }) => {
+const web3 = new Web3();
+
+const Description = ({ project, key, contract, currentAccount, web3Provider }) => {
  
   const [blurb, setBlurb] = useState("");
   const [avatar, setAvatar] = useState("");
@@ -13,6 +16,16 @@ const Description = ({ project }) => {
 
  const click = () => {
   $('.mainDesc').css("filter","blur(3px)");
+ }
+
+ const contributeEth = async () => {
+    const id = await parseInt(project[0]);
+    console.log(currentAccount);
+    console.log(project[1]);
+    const res = await contract.methods.contribute(id).send({from : currentAccount, to:project[1], value: web3.utils.toWei("0.1", "ether"), gas: 6721950 });
+    console.log(res);
+    window.location.reload();
+
  }
 
  const getInfo = async () => {
@@ -31,6 +44,7 @@ const Description = ({ project }) => {
      getInfo();
    },[])
 
+   const fund = project.fund/1000000000000000000;
   return (
     <div>
       <div className="bodyDesc">
@@ -69,7 +83,7 @@ const Description = ({ project }) => {
                 </span>
                 <div className="reviewsDesc">
                   <ul className="starsDesc">
-                    <li>$0</li>
+                    <li>{`${fund} ETH`}</li>
                   </ul>
                   <span>
                     <br />
@@ -80,10 +94,10 @@ const Description = ({ project }) => {
                 <br />
                 <div className="reviewsDesc">
                   <ul className="starsDesc">
-                    <li>$0</li>
+                    <li>{`${fund} ETH`}</li>
                   </ul>
                   <span>
-                    From total 0 contributors
+                    {`From total ${project.contributors} contributors`}
                     <br />
                     <br />
                   </span>
@@ -116,9 +130,10 @@ const Description = ({ project }) => {
                 <div className="tagContainDesc">
                   <div className="tagsDesc">{project.category}</div>
                 </div>
-                <Popup trigger={<button>Contribute </button>} onOpen = {click} closeOnEscape = {false} closeOnDocumentClick= {false} modal id="pop">
+                <button onClick={contributeEth}>Contribute </button>
+                {/* <Popup trigger={<button>Contribute </button>} onOpen = {click} closeOnEscape = {false} closeOnDocumentClick= {false} modal id="pop">
                 <Verify />
-                </Popup>
+                </Popup> */}
               </div>
             </div>
           </div>

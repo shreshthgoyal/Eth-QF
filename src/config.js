@@ -1,5 +1,5 @@
-const address = "0xAdb522433aa5b881aE08d2adF893A6a1EB05b80b";
-const abi =  [
+const address = "0x408020b8ccFFe2D2E3FDcD2Eb945a54fBf696c3c";
+const abi = [
   {
     "inputs": [],
     "name": "getAllProjects",
@@ -54,6 +54,11 @@ const abi =  [
           {
             "internalType": "uint256",
             "name": "matchingContributors",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "rootSum",
             "type": "uint256"
           },
           {
@@ -208,6 +213,11 @@ const abi =  [
       },
       {
         "internalType": "uint256",
+        "name": "rootSum",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
         "name": "matchingSum",
         "type": "uint256"
       },
@@ -279,6 +289,11 @@ const abi =  [
       {
         "internalType": "uint256",
         "name": "matchingContributors",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "rootSum",
         "type": "uint256"
       },
       {
