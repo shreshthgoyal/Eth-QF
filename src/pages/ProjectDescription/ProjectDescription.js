@@ -181,6 +181,9 @@ const ProjectDescription = () => {
               project={project[1]}
               key={project[0]}
               className="description1"
+              contract={contract}
+              currentAccount={currentAccount}
+              web3Provider={web3Provider}
             />
           );
         }
