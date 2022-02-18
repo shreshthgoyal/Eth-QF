@@ -1,4 +1,4 @@
-const address = "0x408020b8ccFFe2D2E3FDcD2Eb945a54fBf696c3c";
+const address = "0x48BBAd2Ba094cd0742f04a22D76d7A90588908cA";
 const abi = [
   {
     "inputs": [],
@@ -335,6 +335,26 @@ const abi = [
     "inputs": [
       {
         "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "sponsors",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
         "name": "_projectId",
         "type": "uint256"
       }
@@ -359,6 +379,20 @@ const abi = [
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getAllSponsors",
+    "outputs": [
+      {
+        "internalType": "address[]",
+        "name": "",
+        "type": "address[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
   }
 ];
 

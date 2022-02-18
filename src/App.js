@@ -92,7 +92,7 @@ function App() {
             <Route path="/projects" element={<ProjectListing />}></Route>
             <Route
               path="/sponsor"
-              element={<Sponsors number="205439" />}
+              element={<Sponsors contract={contract} currentAccount = {currentAccount} address = {address} />}
             ></Route>
             <Route path="/projects" element={<ProjectListing />}></Route>
             <Route

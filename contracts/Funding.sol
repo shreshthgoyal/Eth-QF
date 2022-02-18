@@ -8,6 +8,7 @@ contract Funding is GetProject {
     uint256 public matchingFund = 0;
     bool public isMatchingRound = false;
     mapping(address => uint256) public sponsorToDonation;
+    address[] public sponsors;
 
     function contribute(uint256 _projectId) public payable {
         require(msg.sender != projects[_projectId].projectOwner);
@@ -28,6 +29,7 @@ contract Funding is GetProject {
             sponsorToDonation[msg.sender] += msg.value;
         } else {
             sponsorToDonation[msg.sender] = msg.value;
+            sponsors.push(msg.sender);
         }
     }
 
@@ -52,5 +54,9 @@ contract Funding is GetProject {
                 (projects[i].matchingSum / totalMatchingSum) *
                 matchingFund;
         }
+    }
+
+    function getAllSponsors() public view returns (address[] memory) {
+        return sponsors;
     }
 }
