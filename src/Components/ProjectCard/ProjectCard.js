@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./ProjectCard.css";
-const ProjectCard = ({ project, key, contract, currentAccount }) => {
+const ProjectCard = ({ project, contract, currentAccount }) => {
   return (
     <div className="card-container">
       <div className="card">

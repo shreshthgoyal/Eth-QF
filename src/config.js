@@ -1,5 +1,5 @@
-const address = "0x3810340426CA48Bf94E9ebF9994Ab9cd85e03822";
-const abi =  [
+const address = "0x1258055F8f59c0BBA5891f51Fc60B6792DD9e0F1";
+const abi = [
   {
     "inputs": [],
     "name": "getAllProjects",

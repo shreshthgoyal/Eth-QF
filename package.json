@@ -30,6 +30,7 @@
     "react-popup": "^0.10.0",
     "react-router-dom": "^6.2.1",
     "react-scripts": "4.0.3",
+    "react-toasts": "^3.0.6",
     "reactjs-popup": "^2.0.5",
     "reaptcha": "^1.7.3",
     "web-vitals": "^2.1.2",
