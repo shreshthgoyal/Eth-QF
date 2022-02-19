@@ -59,6 +59,12 @@ let val = 0;
 
    const amount = project.fund/1000000000000000000;
 
+   const sendMatchingShares = async () => {
+    
+    const res = await contract.methods.sendMatchingShares(id).send({from:currentAccount});
+    console.log(res);
+ }
+
    var images = [];
 images[0] = "https://pbs.twimg.com/card_img/1492856766534537217/Rz9RJade?format=png&name=small";
 images[1] = "https://ethereum.org/static/810eb64d89629231aa4d8c7fe5f20ee5/7c061/developers-eth-blocks.png";
@@ -151,6 +157,7 @@ images[2] = "https://www.pngall.com/wp-content/uploads/10/Ethereum-Logo-PNG.png"
                   <div className="tagsDesc">{project.category}</div>
                 </div>
                 {/* <button onClick={ () => { contributeEth()}}>Contribute </button> */}
+                <button onClick={sendMatchingShares} className="hero__cta cta arch">Withdraw </button>
                 <Popup trigger={<button>Contribute </button>} onOpen = {click} closeOnEscape = {false} closeOnDocumentClick= {false} modal id="pop">
                 <Verify />
                 </Popup>

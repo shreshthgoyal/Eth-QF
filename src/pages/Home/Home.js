@@ -21,6 +21,7 @@ const Home = () => {
   let token = null;
   const navigate = useNavigate();
   const [matchingFund, setMatchingFund] = useState(0.000);
+  const [isMatchingRound, setIsMatchingRound] = useState(false);
   const [currentAccount, setCurrentAccount] = useState("");
   const [contract, setContract] = useState();
   const [web3Provider, setWeb3Provider] = useState(null);
@@ -58,8 +59,10 @@ const Home = () => {
   const getMatchingFund = async () => {
     if(contract)
    { const res = await contract.methods.matchingFund().call();
+     const matchingStatus = await contract.methods.isMatchingRound.call();
     await setMatchingFund(res);
     await setCurrentAccount(currentAccount);
+    await setIsMatchingRound(matchingStatus);
   }
   }
 
@@ -157,7 +160,7 @@ const Home = () => {
           <div id="wrapper">
               <Stats title="Matching Fund" icon="fa fa-cube" color="	#76CBC1" number={parseInt(matchingFund)/1000000000000000000}/>
           </div>
-          <Banner />
+          <Banner contract={contract} currentAccount = {currentAccount}/>
           <Footer />
           </main>
           </div>

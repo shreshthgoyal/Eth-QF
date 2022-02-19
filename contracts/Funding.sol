@@ -31,6 +31,10 @@ contract Funding is GetProject {
             sponsorToDonation[msg.sender] = msg.value;
             sponsors.push(msg.sender);
         }
+
+        if (matchingFund > 50000000000000000000) {
+            isMatchingRound = true;
+        }
     }
 
     function sqrt(uint256 x) public pure returns (uint256 y) {
@@ -60,5 +64,22 @@ contract Funding is GetProject {
 
     function getAllSponsors() public view returns (address[] memory) {
         return sponsors;
+    }
+
+    function sendMatchingShares(uint256 _id) public {
+        payable(projects[_id].projectOwner).transfer(
+            projects[_id].matchingShare
+        );
+    }
+
+    function getBalance() public view returns (uint256) {
+        return address(this).balance;
+    }
+
+    function resetMatching(uint256 _projectId) public {
+        projects[_projectId].rootSum = 0;
+        projects[_projectId].matchingShare = 0;
+        projects[_projectId].matchingSum = 0;
+        matchingFund = 0;
     }
 }
