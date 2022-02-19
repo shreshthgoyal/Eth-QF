@@ -5,6 +5,8 @@ import CountTo from 'react-count-to';
 import {useState, useEffect, useRef} from 'react';
 import {abi, address} from '../../config';
 import Web3 from 'web3';
+import {ToastsContainer, ToastsStore} from 'react-toasts';
+
 
 const web3 = new Web3();
 
@@ -17,8 +19,7 @@ const Sponsors = () => {
   const [web3Provider, setWeb3Provider] = useState(null);
   const [matchingFund, setMatchingFund] = useState(0.000);
   const [sponsors, setSponsors] = useState([]);
-  const [donations, setDonations] = useState({});
-
+  let arr = [];
   const checkWalletIsConnected = async () => {
     const {ethereum} = window;
     if(!ethereum){
@@ -97,35 +98,36 @@ const Sponsors = () => {
   const getSponsorsList = async () => {
     if(contract)
     {
-      const res = await contract.methods.getAllSponsors().call();
-     await setSponsors(...sponsors, res);
+      const res = await contract.methods.getAllSponsors().call()
+       await setSponsors(...sponsors, res)
+
     }
   }
 
-  const getDonations = async (s) => {
+  // const getDonations =   () => {
 
-    if(contract)
-    {
-      sponsors.forEach(async(sponsor) => {
-      const res = await contract.methods.sponsorToDonation(sponsor).call();
-      donations[sponsor] = res;
-      await setDonations(donations);
+  //   if(contract)
+  //   {
+  //     Object.values(sponsors).map(async(sponsor) => {
+  //     console.log(contract)
 
-      return donations[s];
-    })}
-  
-  }
+  //       let res =  await contract.methods.sponsorToDonation(sponsor).call();
+  //   })}
+  // }
+
+  let val = 0;
   useEffect(() => {
     checkWalletIsConnected()
     .then(() => {
-    getMatchingFund().then(
-    getSponsorsList())})
+    getMatchingFund()
+    getSponsorsList()
+  })
   }, [contract, currentAccount]);
 
- let val =0;
   const donateEth = async () => {
-    await getAmount();
-    const res = await contract.methods.donateToMatchingFund().send({from : currentAccount, to:address, value: web3.utils.toWei(val !== null ? val : "0", "ether"), gas: 6721950 });
+   await getAmount();
+   await contract.methods.donateToMatchingFund().send({from : currentAccount, to:address, value: web3.utils.toWei(val !== null ? val : "0", "ether"), gas: 6721950 });   
+    window.location.reload();
   }
 
     return (
@@ -145,11 +147,9 @@ const Sponsors = () => {
         <div className="features__feature feature--1">
           <h2>Sponsors</h2>
           {
-            console.log(typeof sponsors)
-          // Object.keys(sponsors).forEach( async (sponsor) => {
-          //   console.log(sponsor)
-          //   return (<div key={sponsor}><h3>{sponsor}</h3><h2>Donation: 1 wei</h2></div>)
-          // })
+           Object.values(sponsors).map( (sponsor) => {
+            return (<div key={sponsor}><h3>{sponsor}</h3></div>)
+          })
           }
           <h3 className="feature__title stat">
           <CountTo to= {parseInt(matchingFund)/1000000000000000000} speed={1000} />
@@ -163,6 +163,7 @@ const Sponsors = () => {
     </div>
   </section>           
         <Footer />
+      <ToastsContainer store={ToastsStore}/>
         </div>
     )
 }
