@@ -1,4 +1,4 @@
-const address = "0x2c37C281E3aFF5eb04fB3d008bE21cbdeD1C91E8";
+const address = "0x6cE3317d8C6aA09dAF999F3f247b413Bee19b2ca";
 const abi = [
   {
     "inputs": [],
@@ -415,12 +415,17 @@ const abi = [
     "constant": true
   },
   {
-    "inputs": [],
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_id",
+        "type": "uint256"
+      }
+    ],
     "name": "sendMatchingShares",
     "outputs": [],
-    "stateMutability": "payable",
-    "type": "function",
-    "payable": true
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
     "inputs": [],

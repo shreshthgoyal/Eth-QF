@@ -12,19 +12,25 @@ const Banner = ({contract, currentAccount}) => {
     }
 
  }
+ 
 
  const sendMatchingShares = async () => {
     console.log(projects);
-    console.log(address);
     // const res = await contract.methods.getBalance().call();
     // console.log(res);
     projects.forEach(async (project) => {
+      console.log(project);
         const response = await contract.methods.clrMatching().send({from: currentAccount});
         console.log(response);
-        console.log(project);
-        const res = await contract.methods.sendMatchingShares().send({from:address, to:project[1], value:project.matchingShare, gas: 6721950 });
-        console.log(res);
+        
+        
     })
+ }
+ 
+
+ const getBalance = async () => {
+  const res = await contract.methods.getBalance().call();
+  console.log(res);
  }
 
  useEffect(() => {
@@ -43,6 +49,7 @@ const Banner = ({contract, currentAccount}) => {
       
       <a href="#" className="hero__cta cta arch">View archive</a><br></br><br></br>
       <button onClick={sendMatchingShares} className="hero__cta cta arch">CLR Matching</button>
+      <button onClick={getBalance} className="hero__cta cta arch">Get Balance</button>
       </div>
     </div>
   </section>
