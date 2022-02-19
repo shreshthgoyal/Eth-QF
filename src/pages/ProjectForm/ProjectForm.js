@@ -60,7 +60,7 @@ const ProjectForm = ({contract, currentAccount}) => {
     return (
         <div>
   <Navbar />
-  <div className="containero">
+  <div className="containero">  
   <div className="lefto">
     <div className="headero">
       <h2 className="animation a1">Welcome Back</h2>
@@ -68,7 +68,7 @@ const ProjectForm = ({contract, currentAccount}) => {
     </div>
     <div className="form">
       <input type="text" className="form-field animation a3" placeholder= {userName} disabled/>
-      <select className="form-field animation a4 project" onChange={(e) => {setPro(e.target.value); }}>
+      <select className="form-field animation a4 project" onChange={(e) => {setPro(e.target.value); }} required>
       <option value= "">{val !== "" ? val : "Choose Your Project"}</option>
         {
           userRepo.map(item => {
@@ -77,8 +77,8 @@ const ProjectForm = ({contract, currentAccount}) => {
         }
       </select>   
       <input type="text" className="form-field animation a3" placeholder= {(val != "") ? `https://github.com/${userName}/${val}` : "Open Source URL"} disabled/>
-      <input type="text" className="form-field animation a3" placeholder= "Pitch" onChange={(e) => setPitch(e.target.value)}/>
-      <select className="form-field animation a4 project" onChange={(e) => setCat(e.target.value)}>
+      <input type="text" className="form-field animation a3" placeholder= "Pitch" onChange={(e) => setPitch(e.target.value)} required/>
+      <select className="form-field animation a4 project" onChange={(e) => setCat(e.target.value)} required>
       <option value= "">Choose Project Category</option>
         {
           categories.map(item => {

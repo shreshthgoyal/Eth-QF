@@ -15,11 +15,9 @@ const Sponsors = () => {
   const [currentAccount, setCurrentAccount] = useState(null);
   const [contract, setContract] = useState(null);
   const [web3Provider, setWeb3Provider] = useState(null);
-  const [matchingFund, setMatchingFund] = useState(0.0);
+  const [matchingFund, setMatchingFund] = useState(0.000);
   const [sponsors, setSponsors] = useState([]);
   const [donations, setDonations] = useState({});
-
-
 
   const checkWalletIsConnected = async () => {
     const {ethereum} = window;
@@ -78,63 +76,55 @@ const Sponsors = () => {
           'Non-Ethereum browser detected. You should consider trying MetaMask!',
         )
       }
-
-      await setContract(new web3.eth.Contract(abi, address));
+      if(!contract)
+      setContract(new web3.eth.Contract(abi, address));
     }catch(error){
        console.log(error);
     }
   }
 
+  const getAmount =  () => {
+    val = prompt("Enter amount of ethers you want to contribute :");
+ }
+
   const getMatchingFund = async () => {
-    console.log(contract)
-    const res = await contract.methods.matchingFund().call();
+    if(contract)
+   { const res = await contract.methods.matchingFund().call();
     await setMatchingFund(res);
+    await setCurrentAccount(currentAccount);
+  }
   }
 
   const getSponsorsList = async () => {
-    console.log(contract);
-    const res = await contract.methods.getAllSponsors().call();
-    await setSponsors(res);
-      
-    
-    
+    if(contract)
+    {
+      const res = await contract.methods.getAllSponsors().call();
+     setSponsors(res);}
   }
 
   const getDonations = async () => {
-    sponsors.forEach(async(sponsor) => {
+
+    if(contract)
+    {
+      sponsors.forEach(async(sponsor) => {
       const res = await contract.methods.sponsorToDonation(sponsor).call();
-      console.log("here");
       donations[sponsor] = res;
-      console.log(donations);
-      await setDonations(donations);
-    })
-    
-
-    
-  }
-
-  useEffect(() => {
-    checkWalletIsConnected(); 
-  }, []);
+      setDonations(donations);
+    })}
   
-
+  }
   useEffect(() => {
-      getMatchingFund();
-      getSponsorsList();
-  }, [contract]);
+    checkWalletIsConnected()
+    .then(() => {
+    getMatchingFund().then(
+    getSponsorsList()).then(
+    getDonations())})
+  }, [contract, currentAccount]);
 
-  useEffect(() => {
-    getDonations();
-  }, [sponsors]);
-
+ let val =0;
   const donateEth = async () => {
-    console.log(contract);
-    console.log(address);
-    console.log(currentAccount);
-    const res = await contract.methods.donateToMatchingFund().send({from : currentAccount, to:address, value: web3.utils.toWei("1", "ether"), gas: 6721950 });
-    console.log(res);
-    console.log(contract);
-
+    await getAmount();
+    const res = await contract.methods.donateToMatchingFund().send({from : currentAccount, to:address, value: web3.utils.toWei(val !== null ? val : "0", "ether"), gas: 6721950 });
   }
 
     return (
@@ -155,13 +145,14 @@ const Sponsors = () => {
           <h2>Sponsors</h2>
           {sponsors.map((sponsor) => {
             
-            return (<div><h3>{sponsor}</h3><h2>Donation: {donations[sponsor]}</h2></div>)
+            return (<div key={sponsor}><h3>{sponsor}</h3><h2>Donation: {donations[sponsor]} wei</h2></div>)
           })}
           <h3 className="feature__title stat">
-          <CountTo to= {matchingFund} speed={1000} />
+           {console.log(donations, "here")}
+          <CountTo to= {parseInt(matchingFund)/1000000000000000000} speed={1000} />
           </h3>
           <p className="features__paragraph u">
-          Money funded till date to matching pool.
+          Ethers funded till date to matching pool.
         </p>
       <button className="hero__cta cta arch spo" onClick={donateEth}>Become a sponsor</button>
         </div>

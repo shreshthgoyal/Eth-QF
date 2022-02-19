@@ -1,31 +1,43 @@
 import "./Description.css";
+import {ToastsContainer, ToastsStore} from 'react-toasts';
 import Popup from 'reactjs-popup';
 import Verify from '../Verify/Verify';
 import $ from 'jquery';
 import axios from 'axios';
 import React, { useState }  from 'react';
 import Web3 from 'web3';
+import { useParams } from "react-router-dom";
 
 const web3 = new Web3();
 
-const Description = ({ project, key, contract, currentAccount, web3Provider }) => {
+const Description = ({ project, contract, currentAccount, web3Provider }) => {
  
   const [blurb, setBlurb] = useState("");
   const [avatar, setAvatar] = useState("");
-
+let val = 0;
+  const { id, fund } = useParams();
 
  const click = () => {
   $('.mainDesc').css("filter","blur(3px)");
  }
 
- const contributeEth = async () => {
-    const id = await parseInt(project[0]);
-    console.log(currentAccount);
-    console.log(project[1]);
-    const res = await contract.methods.contribute(id).send({from : currentAccount, to:project[1], value: web3.utils.toWei("0.1", "ether"), gas: 6721950 });
-    console.log(res);
-    window.location.reload();
+ const getAmount =  () => {
+    val = prompt("Enter amount of ethers you want to contribute :");
+ }
 
+ const contributeEth = async () => {
+   if(fund )
+  {   
+    await getAmount();
+    await contract.methods.contribute(id).send({from : currentAccount, to:project[1], value: web3.utils.toWei(val !== null ? val : "0", "ether"), gas: 6721950 });
+    window.location.replace(window.location.href.slice(0, window.location.href.length -5 ));
+  }
+
+    else
+    {
+      ToastsStore.warning("Please verify yourself as a new contributor!")
+    }
+    
  }
 
  const getInfo = async () => {
@@ -42,9 +54,10 @@ const Description = ({ project, key, contract, currentAccount, web3Provider }) =
 
    React.useEffect(() => {
      getInfo();
+    if(fund) contributeEth();
    },[])
 
-   const fund = project.fund/1000000000000000000;
+   const amount = project.fund/1000000000000000000;
   return (
     <div>
       <div className="bodyDesc">
@@ -83,7 +96,7 @@ const Description = ({ project, key, contract, currentAccount, web3Provider }) =
                 </span>
                 <div className="reviewsDesc">
                   <ul className="starsDesc">
-                    <li>{`${fund} ETH`}</li>
+                    <li>{`${amount} ETH`}</li>
                   </ul>
                   <span>
                     <br />
@@ -94,7 +107,7 @@ const Description = ({ project, key, contract, currentAccount, web3Provider }) =
                 <br />
                 <div className="reviewsDesc">
                   <ul className="starsDesc">
-                    <li>{`${fund} ETH`}</li>
+                    <li>{ `${amount} ETH`}</li>
                   </ul>
                   <span>
                     {`From total ${project.contributors} contributors`}
@@ -104,7 +117,7 @@ const Description = ({ project, key, contract, currentAccount, web3Provider }) =
                 </div>
                 <div className="reviewsDesc">
                   <ul className="starsDesc">
-                    <li>$0</li>
+                    <li>0 ETH</li>
                   </ul>
                   <span>
                     Lifetime CLR Matching
@@ -130,7 +143,7 @@ const Description = ({ project, key, contract, currentAccount, web3Provider }) =
                 <div className="tagContainDesc">
                   <div className="tagsDesc">{project.category}</div>
                 </div>
-                <button onClick={contributeEth}>Contribute </button>
+                <button onClick={ () => { contributeEth()}}>Contribute </button>
                 {/* <Popup trigger={<button>Contribute </button>} onOpen = {click} closeOnEscape = {false} closeOnDocumentClick= {false} modal id="pop">
                 <Verify />
                 </Popup> */}
@@ -139,6 +152,7 @@ const Description = ({ project, key, contract, currentAccount, web3Provider }) =
           </div>
         </main>
       </div>
+      <ToastsContainer store={ToastsStore}/>
     </div>
   );
 };

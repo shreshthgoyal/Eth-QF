@@ -102,7 +102,7 @@ const ProjectListing =  () => {
         const isSelected = {};
         categories.forEach(category => isSelected[category] = false  )
         setSelectedCategories(isSelected);
-      }, [contract]);
+      }, [contract, currentAccount]);
 
       
     const getProjects = async () => {
@@ -155,8 +155,6 @@ const ProjectListing =  () => {
                            return selectedCategories[project[1].category] ? <ProjectCard project={project[1]} key={project[0]}/> : null 
 
                            return <ProjectCard project={project[1]} key={project[0]} contract={contract} currentAccount={currentAccount} />;
-
-                            
                             })
                         }
                         </div>
