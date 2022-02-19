@@ -91,8 +91,6 @@ const Sponsors = () => {
     if(contract)
    { const res = await contract.methods.matchingFund().call();
     await setMatchingFund(res);
-    await setCurrentAccount(currentAccount);
-    console.log(1)
   }
   }
 
@@ -100,17 +98,20 @@ const Sponsors = () => {
     if(contract)
     {
       const res = await contract.methods.getAllSponsors().call();
-     setSponsors(res);}
+     await setSponsors(...sponsors, res);
+    }
   }
 
-  const getDonations = async () => {
+  const getDonations = async (s) => {
 
     if(contract)
     {
       sponsors.forEach(async(sponsor) => {
       const res = await contract.methods.sponsorToDonation(sponsor).call();
       donations[sponsor] = res;
-      setDonations(donations);
+      await setDonations(donations);
+
+      return donations[s];
     })}
   
   }
@@ -118,8 +119,7 @@ const Sponsors = () => {
     checkWalletIsConnected()
     .then(() => {
     getMatchingFund().then(
-    getSponsorsList()).then(
-    getDonations())})
+    getSponsorsList())})
   }, [contract, currentAccount]);
 
  let val =0;
@@ -144,12 +144,14 @@ const Sponsors = () => {
       <div className="features__wrapper sponsors">
         <div className="features__feature feature--1">
           <h2>Sponsors</h2>
-          {sponsors.map((sponsor) => {
-            
-            return (<div key={sponsor}><h3>{sponsor}</h3><h2>Donation: {donations[sponsor]} wei</h2></div>)
-          })}
+          {
+            console.log(typeof sponsors)
+          // Object.keys(sponsors).forEach( async (sponsor) => {
+          //   console.log(sponsor)
+          //   return (<div key={sponsor}><h3>{sponsor}</h3><h2>Donation: 1 wei</h2></div>)
+          // })
+          }
           <h3 className="feature__title stat">
-           {console.log(donations, "here")}
           <CountTo to= {parseInt(matchingFund)/1000000000000000000} speed={1000} />
           </h3>
           <p className="features__paragraph u">
