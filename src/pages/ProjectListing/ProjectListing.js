@@ -102,7 +102,7 @@ const ProjectListing =  () => {
         const isSelected = {};
         categories.forEach(category => isSelected[category] = false  )
         setSelectedCategories(isSelected);
-      }, [contract]);
+      }, [contract, currentAccount]);
 
       
     const getProjects = async () => {
