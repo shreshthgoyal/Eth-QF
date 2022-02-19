@@ -18,8 +18,8 @@ class App extends Component {
   }
   render() {
     return (
-
-      <div id="firebaseui-auth-container"></div>
+      <div id="firebaseui-auth-container">
+      </div>
     )
   }
 }

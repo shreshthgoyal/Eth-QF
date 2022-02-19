@@ -92,6 +92,7 @@ const Sponsors = () => {
    { const res = await contract.methods.matchingFund().call();
     await setMatchingFund(res);
     await setCurrentAccount(currentAccount);
+    console.log(1)
   }
   }
 

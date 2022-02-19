@@ -11,12 +11,96 @@ import { useNavigate } from "react-router-dom";
 import LoginGithub from 'react-login-github';
 import React from 'react';
 import axios from 'axios';
+import {address, abi} from "../../config";
+import Web3 from 'web3';
+import { useState, useEffect} from "react";
 
 const Home = () => {
 
 
   let token = null;
   const navigate = useNavigate();
+  const [matchingFund, setMatchingFund] = useState(0.000);
+  const [currentAccount, setCurrentAccount] = useState("");
+  const [contract, setContract] = useState();
+  const [web3Provider, setWeb3Provider] = useState(null);
+
+  const checkWalletIsConnected = async () => {
+    const {ethereum} = window;
+    if(!ethereum){
+      console.log("Install Metamask please!");
+      return;
+    }else{
+      console.log("All set!");
+    }
+    try{
+      const accounts = await ethereum.request({method: 'eth_requestAccounts'});
+
+      if(accounts.length !== 0){
+        const account = accounts[0];
+        console.log("Account address : ", account);
+        setCurrentAccount(account)
+        await loadContract();
+        
+      }else{
+        console.log("No account found");
+      }
+      
+    } catch(error){
+      console.log("Error : ", error);
+    }
+  }
+
+
+  const getMatchingFund = async () => {
+    if(contract)
+   { const res = await contract.methods.matchingFund().call();
+    await setMatchingFund(res);
+    await setCurrentAccount(currentAccount);
+  }
+  }
+
+  const loadContract = async () => {
+    try{
+      let {web3} = window;
+      if (typeof web3 !== 'undefined') {
+         setWeb3Provider(web3.currentProvider);
+          web3 = new Web3(web3.currentProvider)
+      } else {
+        window.alert('Please connect to Metamask.')
+      }
+      const {ethereum} = window;
+
+      if (ethereum) {
+          window.web3 = new Web3(ethereum)
+          try {
+            // Request account access if needed
+            await ethereum.enable()
+          } catch (error) {
+            // User denied account access...
+          }
+      }
+      // Legacy dapp browsers...
+      else if (window.web3) {
+        setWeb3Provider(web3.currentProvider);
+        window.web3 = new Web3(web3.currentProvider)
+      }
+      // Non-dapp browsers...
+      else {
+        console.log(
+          'Non-Ethereum browser detected. You should consider trying MetaMask!',
+        )
+      }
+      if(!contract)
+      setContract(new web3.eth.Contract(abi, address))
+    }catch(error){
+       console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    checkWalletIsConnected().then(getMatchingFund());
+      }, [contract, currentAccount, matchingFund]);
 
   const onSuccess = response => {
     axios.get(`https://qfdone.herokuapp.com/authenticate/${response.code}`)
@@ -56,7 +140,7 @@ const Home = () => {
           <Projects />
           <Steps />
           <div id="wrapper">
-              <Stats title="Matching Fund" icon="fa fa-cube" color="	#76CBC1" number="205439"/>
+              <Stats title="Matching Fund" icon="fa fa-cube" color="	#76CBC1" number={parseInt(matchingFund)/1000000000000000000}/>
           </div>
           <Banner />
           <Footer />

@@ -24,7 +24,7 @@ class Stats extends React.Component {
         <div className="portfolio__container container container--px">
           <div className="portfolio__text">
             <h1 className="portfolio__subtitle subtitle-primary">{title}</h1>
-        <h2 className="features__title title-primary"><CountTo to= {parseInt(number,10)} speed={11000} /></h2>
+        <h2 className="features__title title-primary"><CountTo to= {number} speed={1000} /></h2>
       </div> 
       <div className="portfolio__footer">
              <Link to="/sponsor" className="portfolio__link cta cta--link">

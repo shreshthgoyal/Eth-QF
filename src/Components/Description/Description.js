@@ -143,10 +143,10 @@ let val = 0;
                 <div className="tagContainDesc">
                   <div className="tagsDesc">{project.category}</div>
                 </div>
-                <button onClick={ () => { contributeEth()}}>Contribute </button>
-                {/* <Popup trigger={<button>Contribute </button>} onOpen = {click} closeOnEscape = {false} closeOnDocumentClick= {false} modal id="pop">
+                {/* <button onClick={ () => { contributeEth()}}>Contribute </button> */}
+                <Popup trigger={<button>Contribute </button>} onOpen = {click} closeOnEscape = {false} closeOnDocumentClick= {false} modal id="pop">
                 <Verify />
-                </Popup> */}
+                </Popup>
               </div>
             </div>
           </div>
