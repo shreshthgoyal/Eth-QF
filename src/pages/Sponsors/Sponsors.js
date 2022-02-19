@@ -126,7 +126,12 @@ const Sponsors = () => {
 
   const donateEth = async () => {
    await getAmount();
-   await contract.methods.donateToMatchingFund().send({from : currentAccount, to:address, value: web3.utils.toWei(val !== null ? val : "0", "ether"), gas: 6721950 });   
+   if(val < 5) 
+   { 
+     ToastsStore.warning("Contribute more than 5 ethers to be a Sponsor!");
+     return;
+   }
+   await contract.methods.donateToMatchingFund().send({from : currentAccount, to:address, value: web3.utils.toWei(val >= 5 ? val : "0", "ether"), gas: 6721950 });   
     window.location.reload();
   }
 
