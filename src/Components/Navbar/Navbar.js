@@ -57,7 +57,7 @@ return (
           <li className="nav-item">
             <NavLink
               exact="true"
-              to="/contact"
+              to="/sponsor"
               activeclassname="active"
               className="nav-links"
              onClick={click ? handleClick : null}

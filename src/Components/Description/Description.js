@@ -58,6 +58,13 @@ let val = 0;
    },[])
 
    const amount = project.fund/1000000000000000000;
+
+   var images = [];
+images[0] = "https://pbs.twimg.com/card_img/1492856766534537217/Rz9RJade?format=png&name=small";
+images[1] = "https://ethereum.org/static/810eb64d89629231aa4d8c7fe5f20ee5/7c061/developers-eth-blocks.png";
+images[2] = "https://www.pngall.com/wp-content/uploads/10/Ethereum-Logo-PNG.png";
+
+
   return (
     <div>
       <div className="bodyDesc">
@@ -72,7 +79,7 @@ let val = 0;
                 </div>
                 <div className="imageDesc">
                   <img
-                    src="https://images-na.ssl-images-amazon.com/images/I/613A7vcgJ4L._SL1500_.jpg"
+                    src={images[Math.floor(Math.random() * images.length)]}
                     alt=""
                   ></img>
                 </div>
