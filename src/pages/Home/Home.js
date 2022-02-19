@@ -24,6 +24,9 @@ const Home = () => {
   const [currentAccount, setCurrentAccount] = useState("");
   const [contract, setContract] = useState();
   const [web3Provider, setWeb3Provider] = useState(null);
+  const [projects, setProjects] = useState([]);
+
+
 
   const checkWalletIsConnected = async () => {
     const {ethereum} = window;
@@ -99,8 +102,20 @@ const Home = () => {
   }
 
   useEffect(() => {
-    checkWalletIsConnected().then(getMatchingFund());
+    checkWalletIsConnected().then(
+      getMatchingFund()
+      ).then(
+      getProjects()
+      )
       }, [contract, currentAccount, matchingFund]);
+      
+
+      const getProjects = async () => {
+        if(contract)
+        { 
+         await contract.methods.getAllProjects().call().then(i =>Object.entries(i)).then(i => setProjects(i));
+        }
+     }
 
   const onSuccess = response => {
     axios.get(`https://qfdone.herokuapp.com/authenticate/${response.code}`)
@@ -137,7 +152,7 @@ const Home = () => {
                 </div>
               </div>
           <Features />
-          <Projects />
+          <Projects projects={projects} />
           <Steps />
           <div id="wrapper">
               <Stats title="Matching Fund" icon="fa fa-cube" color="	#76CBC1" number={parseInt(matchingFund)/1000000000000000000}/>
