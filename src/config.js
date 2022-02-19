@@ -1,4 +1,4 @@
-const address = "0xff5124a1e4b611F9ca88C7A9ac683F043E8fE856";
+const address = "0x1E618DCbeae04E02d9DdD233968Bca518ed032ad";
 const abi = [
   {
     "inputs": [],
@@ -372,6 +372,26 @@ const abi = [
     "stateMutability": "payable",
     "type": "function",
     "payable": true
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "x",
+        "type": "uint256"
+      }
+    ],
+    "name": "sqrt",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "y",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function",
+    "constant": true
   },
   {
     "inputs": [],
