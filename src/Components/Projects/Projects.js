@@ -20,17 +20,15 @@ const Projects = ({projects}) => {
                   <img src="https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png" alt="Valorant Jett character image" className="card__image" loading="lazy" />
                   <div className="card__content">
                     <div className="card__header">
-                      <h3 className="card__title">Project 1</h3>
+                      <h3 className="card__title">{i[1].title}</h3>
                       <button type="button" className="cta cta--btn cta--btn_yellow" aria-label="view portfolio" aria-expanded="false">
                         <svg className="cta--btn-icon" viewBox="0 0 14 11" aria-hidden="true" focusable='false'>
                           <path d="M1 5.5L13 5.5M13 5.5L8.5 1M13 5.5L8.5 10" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
                       </button>
                     </div>
-        
                     <p className="card__description">
-                      Lorem ipsum dolor sit amet,
-                      consec tetur adipiscing elit.
+                      {i[1].pitch}
                     </p>
                   </div>
                 </div>  
