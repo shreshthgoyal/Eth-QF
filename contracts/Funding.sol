@@ -6,7 +6,7 @@ import "./GetProject.sol";
 
 contract Funding is GetProject {
     uint256 public matchingFund = 0;
-    bool public isMatchingRound = false;
+    bool public isMatchingRound = true;
     mapping(address => uint256) public sponsorToDonation;
     address[] public sponsors;
 
