@@ -6,7 +6,7 @@ import "./GetProject.sol";
 
 contract Funding is GetProject {
     uint256 public matchingFund = 0;
-    bool public isMatchingRound = false;
+    bool public isMatchingRound = true;
     mapping(address => uint256) public sponsorToDonation;
     address[] public sponsors;
 
@@ -33,26 +33,28 @@ contract Funding is GetProject {
         }
     }
 
-    function sqrt(uint256 x) private pure returns (uint256 y) {
+    function sqrt(uint256 x) public pure returns (uint256 y) {
         uint256 z = (x + 1) / 2;
         y = x;
         while (z < y) {
             y = z;
             z = (x / z + z) / 2;
         }
+
+        return y;
     }
 
     function clrMatching() public {
-        uint256 totalMatchingSum = 0;
+        uint256 totalMatchingSum;
         for (uint256 i = 0; i < projects.length; i++) {
             projects[i].matchingSum = projects[i].rootSum * projects[i].rootSum;
             totalMatchingSum = totalMatchingSum + projects[i].matchingSum;
         }
 
-        for (uint256 i = 0; i < projects.length; i++) {
-            projects[i].matchingShare =
-                (projects[i].matchingSum / totalMatchingSum) *
-                matchingFund;
+        for (uint256 j = 0; j < projects.length; j++) {
+            projects[j].matchingShare =
+                (projects[j].matchingSum * matchingFund) /
+                totalMatchingSum;
         }
     }
 
