@@ -5,7 +5,7 @@ pragma experimental ABIEncoderV2;
 import "./GetProject.sol";
 
 contract Funding is GetProject {
-    uint256 public matchingFund = 0;
+    uint256 public matchingFund = 50000000000000000000;
     bool public isMatchingRound = true;
     mapping(address => uint256) public sponsorToDonation;
     address[] public sponsors;
@@ -60,5 +60,11 @@ contract Funding is GetProject {
 
     function getAllSponsors() public view returns (address[] memory) {
         return sponsors;
+    }
+
+    function sendMatchingShares() public payable {}
+
+    function getBalance() public view returns (uint256) {
+        return address(this).balance;
     }
 }

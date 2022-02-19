@@ -1,4 +1,4 @@
-const address = "0xff5124a1e4b611F9ca88C7A9ac683F043E8fE856";
+const address = "0x2c37C281E3aFF5eb04fB3d008bE21cbdeD1C91E8";
 const abi = [
   {
     "inputs": [],
@@ -374,6 +374,26 @@ const abi = [
     "payable": true
   },
   {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "x",
+        "type": "uint256"
+      }
+    ],
+    "name": "sqrt",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "y",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function",
+    "constant": true
+  },
+  {
     "inputs": [],
     "name": "clrMatching",
     "outputs": [],
@@ -388,6 +408,28 @@ const abi = [
         "internalType": "address[]",
         "name": "",
         "type": "address[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [],
+    "name": "sendMatchingShares",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function",
+    "payable": true
+  },
+  {
+    "inputs": [],
+    "name": "getBalance",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
       }
     ],
     "stateMutability": "view",

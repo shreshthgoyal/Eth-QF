@@ -142,7 +142,7 @@ const Home = () => {
           <div id="wrapper">
               <Stats title="Matching Fund" icon="fa fa-cube" color="	#76CBC1" number={parseInt(matchingFund)/1000000000000000000}/>
           </div>
-          <Banner />
+          <Banner contract={contract} currentAccount = {currentAccount}/>
           <Footer />
           </main>
           </div>
