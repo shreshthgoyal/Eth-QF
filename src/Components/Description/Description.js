@@ -28,6 +28,7 @@ let val = 0;
  const contributeEth = async () => {
    if(fund )
   {   
+    console.log(project[1]);
     await getAmount();
     await contract.methods.contribute(id).send({from : currentAccount, to:project[1], value: web3.utils.toWei(val !== null ? val : "0", "ether"), gas: 6721950 });
     window.location.replace(window.location.href.slice(0, window.location.href.length -5 ));
