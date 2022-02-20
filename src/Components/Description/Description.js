@@ -13,6 +13,7 @@ const web3 = new Web3();
 const Description = ({ project, contract, currentAccount, web3Provider }) => {
  
   const [blurb, setBlurb] = useState("");
+  const [user, setUser] = useState("");
   const [avatar, setAvatar] = useState("");
 let val = 0;
   const { id, fund } = useParams();
@@ -54,6 +55,7 @@ let val = 0;
 
    React.useEffect(() => {
      getInfo();
+     console.log(user)
     if(fund) contributeEth();
    },[])
 
@@ -159,7 +161,7 @@ images[2] = "https://www.pngall.com/wp-content/uploads/10/Ethereum-Logo-PNG.png"
                 {/* <button onClick={ () => { contributeEth()}}>Contribute </button> */}
                 <button onClick={sendMatchingShares} className="hero__cta cta arch">Withdraw </button>
                 <Popup trigger={<button>Contribute </button>} onOpen = {click} closeOnEscape = {false} closeOnDocumentClick= {false} modal id="pop">
-                <Verify />
+                <Verify user={user} setUser={setUser}/>
                 </Popup>
               </div>
             </div>

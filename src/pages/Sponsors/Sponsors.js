@@ -10,8 +10,6 @@ import {ToastsContainer, ToastsStore} from 'react-toasts';
 
 const web3 = new Web3();
 
-
-
 const Sponsors = () => {
 
   const [currentAccount, setCurrentAccount] = useState(null);
