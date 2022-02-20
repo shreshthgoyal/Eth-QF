@@ -69,7 +69,7 @@ You can learn more about  Quadratic Funding [here](https://finematics.com/quadra
 
 # Screenshots
 
-Screenshots of our DApp are added to [this link](https://photos.app.goo.gl/rM9hR66io1JGBUfEA).
+Screenshots of our DApp are added to [this link](https://photos.app.goo.gl/FBom3kopCPeWn3Pj7).
 
 <div id="video" />
 
