@@ -1,4 +1,4 @@
-const address = "0xd66d8055162259B56680b913adDaf0Ed983f21C2";
+const address = "0xBB7FD605eA559e786425AA528Cd01085eDc731dB";
 const abi = [
   {
     "inputs": [],
@@ -69,6 +69,11 @@ const abi = [
           {
             "internalType": "uint256",
             "name": "matchingShare",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "lifetimeMatching",
             "type": "uint256"
           }
         ],
@@ -225,6 +230,11 @@ const abi = [
         "internalType": "uint256",
         "name": "matchingShare",
         "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "lifetimeMatching",
+        "type": "uint256"
       }
     ],
     "stateMutability": "view",
@@ -304,6 +314,11 @@ const abi = [
       {
         "internalType": "uint256",
         "name": "matchingShare",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "lifetimeMatching",
         "type": "uint256"
       }
     ],

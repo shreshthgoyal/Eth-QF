@@ -63,6 +63,7 @@ const Home = () => {
     await setMatchingFund(res);
     await setCurrentAccount(currentAccount);
     await setIsMatchingRound(matchingStatus);
+    console.log(matchingStatus);
   }
   }
 
