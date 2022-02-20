@@ -75,8 +75,8 @@ Screenshots of our DApp are added to [this link](https://photos.app.goo.gl/rM9hR
 
 # Demonstration 
 
-Demonstration of our Dapp is added to [this link](https://vimeo.com/645497797).
-You can checkout the presentation [here](https://prezi.com/view/3FpSC5ii5PdE3s3mumji/).
+Demonstration of our Dapp is added to [this link](https://vimeo.com/645497797). <br />
+You can checkout the presentation [here](https://prezi.com/view/3FpSC5ii5PdE3s3mumji/). <br />
 Our Project Workflow is added to [this link](https://app.milanote.com/1N2f911lxmcl1C?p=JnqtrMZqLIf).
 
 <div id="features" />
