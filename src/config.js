@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 const address = "0xE44D9DD7B055fD2123E98B5A899A644cF01524e7";
+=======
+const address = "0xF5A6CF300DaD5410C76BBFE34f143ab3552BB9e4";
+>>>>>>> 22296bdafb81df42a6e19675f0488a707e91e14b
 const abi = [
   {
     "inputs": [],
