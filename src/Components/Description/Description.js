@@ -61,6 +61,7 @@ let val = 0;
    const amount = project.fund/1000000000000000000;
    const matchingAmount = project.matchingShare/1000000000000000000;
    const lifetimeMatching = project.lifetimeMatching/1000000000000000000;
+   const unpaidAmount = project.unpaid/1000000000000000000;
 
    const sendMatchingShares = async () => {
     
@@ -165,7 +166,8 @@ images[2] = "https://www.pngall.com/wp-content/uploads/10/Ethereum-Logo-PNG.png"
                   <div className="tagsDesc">{project.category}</div>
                 </div><br></br>
                 {/* <button onClick={ () => { contributeEth()}}>Contribute </button> */}
-                {currentAccount == project[1].toLowerCase() ? <React.Fragment><div>Matching Share this round : {`${matchingAmount} ETH`} </div>
+                {currentAccount == project[1].toLowerCase() ? <React.Fragment><div>Matching Share this round : {`${matchingAmount} ETH`} </div> <br></br>
+                <div>Withdrawable Amount : {`${unpaidAmount} ETH`} </div>
                 <button onClick={sendMatchingShares} className="hero__cta cta arch">Withdraw </button></React.Fragment> : 
                 <Popup trigger={<button>Contribute </button>} onOpen = {click} closeOnEscape = {false} closeOnDocumentClick= {false} modal id="pop">
                 <Verify />

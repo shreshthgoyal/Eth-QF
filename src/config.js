@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-const address = "0xE44D9DD7B055fD2123E98B5A899A644cF01524e7";
-=======
-const address = "0xF5A6CF300DaD5410C76BBFE34f143ab3552BB9e4";
->>>>>>> 22296bdafb81df42a6e19675f0488a707e91e14b
+const address = "0x6c3dF2500d915DE2D185bA6fEBA8F8928d263047";
 const abi = [
   {
     "inputs": [],
@@ -24,11 +20,6 @@ const abi = [
             "internalType": "uint256",
             "name": "fund",
             "type": "uint256"
-          },
-          {
-            "internalType": "enum GetProject.ProjectState",
-            "name": "state",
-            "type": "uint8"
           },
           {
             "internalType": "string",
@@ -78,6 +69,11 @@ const abi = [
           {
             "internalType": "uint256",
             "name": "lifetimeMatching",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "unpaid",
             "type": "uint256"
           }
         ],
@@ -200,11 +196,6 @@ const abi = [
         "type": "uint256"
       },
       {
-        "internalType": "enum GetProject.ProjectState",
-        "name": "state",
-        "type": "uint8"
-      },
-      {
         "internalType": "string",
         "name": "title",
         "type": "string"
@@ -252,6 +243,11 @@ const abi = [
       {
         "internalType": "uint256",
         "name": "lifetimeMatching",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "unpaid",
         "type": "uint256"
       }
     ],
@@ -285,11 +281,6 @@ const abi = [
         "type": "uint256"
       },
       {
-        "internalType": "enum GetProject.ProjectState",
-        "name": "state",
-        "type": "uint8"
-      },
-      {
         "internalType": "string",
         "name": "title",
         "type": "string"
@@ -337,6 +328,11 @@ const abi = [
       {
         "internalType": "uint256",
         "name": "lifetimeMatching",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "unpaid",
         "type": "uint256"
       }
     ],

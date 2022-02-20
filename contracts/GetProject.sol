@@ -5,16 +5,10 @@ pragma experimental ABIEncoderV2;
 contract GetProject {
     address public owner = msg.sender;
 
-    enum ProjectState {
-        ACTIVE,
-        UNACTIVE
-    }
-
     struct Project {
         uint256 projectId;
         address projectOwner;
         uint256 fund;
-        ProjectState state;
         string title;
         string pitch;
         string githubLink;
@@ -25,7 +19,7 @@ contract GetProject {
         uint256 matchingSum;
         uint256 matchingShare;
         uint256 lifetimeMatching;
-        uint unpaid;
+        uint256 unpaid;
     }
 
     Project[] public projects;
@@ -43,7 +37,6 @@ contract GetProject {
                 _projectId,
                 msg.sender,
                 0,
-                ProjectState.ACTIVE,
                 _title,
                 _pitch,
                 _githubLink,
