@@ -83,7 +83,7 @@ Our Project Workflow is added to [this link](https://app.milanote.com/1N2f911lxm
 
 <!-- GETTING STARTED -->
 # Features
-
+https://www.canva.com/design/DAE46RT2TfQ/0IAllAnk_whCgz3dIGhndg/view?utm_content=DAE46RT2TfQ&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton
 * Project Owners can list their projects on the website from their GitHub. GitHub OAuth has been implemented in our application via which owners can list their projects and give information about their project to prevent scams.
 * Contributors can filter projects from the list through filters like Project title and Project category.
 * Each project is allocated its own description page from where contributors can learn about the project and the owner before contributing.
