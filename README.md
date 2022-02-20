@@ -46,10 +46,10 @@
 
 ### Why Blockchain?
 
-* **Time efficient :** Blockchain allows us to make the entire process decentralized, where neither of the parties has all of the power. It offers transparency and connects the borrower directly to the lender; with no middlemen involved. The process is automated and hence a lot faster than traditional lending methods.
-* **Fair Interest Rates :** Since blockchain is immutable, the interest rate once decided upon cannot be changed later in an unfair way. The lender gets to specify the desired interest rate beforehand and the borrower gets to choose the interest rate he wants from the ones offered by the different lenders.
-* **Seamless repayment :** Blockchain also removes the worry of the lenders of having their loans repaid. If the borrower does not repay the loan before the specified due date, the lenders have the mortgage submitted by the borrower which can then be auctioned off.
-* 
+* **Time efficient :** Blockchain allows us to make the entire process decentralized, where neither of the parties has all of the power. Essentially, any project has a chance of gaining visibility and funding. It also solves the issue of fees. While blockchain maintenance costs money, it drastically reduces transaction fees. This reduces the cost of crowdfunding for creators and investors.
+* **High availability and immediate provision:** Any project that uses a blockchain-based crowdfunding model has the potential to receive funding. Anyone with an internet connection can also contribute to those projects. Crowdfunders using blockchain technology would not have to worry about the "fraud" that has plagued modern-day crowdfunding projects.
+* **Seamless payment :** Blockchain also removes the worry of the project owners of having their fund withdrawn. The owners can easily withdraw the amount whenever they need to.
+
 ### What is Quadratic Funding?
 
 * **Quadratic Funding converts 1$ to 20$!!**
