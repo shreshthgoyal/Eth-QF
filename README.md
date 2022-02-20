@@ -69,14 +69,14 @@ You can learn more about  Quadratic Funding [here](https://finematics.com/quadra
 
 # Screenshots
 
-Screenshots of our DApp are added to [this link](https://photos.app.goo.gl/rM9hR66io1JGBUfEA).
+Screenshots of our DApp are added to [this link](https://photos.app.goo.gl/FBom3kopCPeWn3Pj7).
 
 <div id="video" />
 
 # Demonstration 
 
 Demonstration of our Dapp is added to [this link](https://vimeo.com/645497797). <br />
-You can checkout the presentation [here](https://prezi.com/view/3FpSC5ii5PdE3s3mumji/). <br />
+You can checkout the presentation [here](https://www.canva.com/design/DAE46RT2TfQ/0IAllAnk_whCgz3dIGhndg/view?utm_content=DAE46RT2TfQ&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton). <br />
 Our Project Workflow is added to [this link](https://app.milanote.com/1N2f911lxmcl1C?p=JnqtrMZqLIf).
 
 <div id="features" />
