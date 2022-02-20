@@ -1,4 +1,3 @@
-[![Contributors][contributors-shield]][contributors-url]
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
