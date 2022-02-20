@@ -82,6 +82,7 @@ function App() {
 
   useEffect(() => {
     checkWalletIsConnected();
+    
   }, [currentAccount])
     return (
       <Router>

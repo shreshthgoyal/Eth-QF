@@ -2,7 +2,6 @@ import "./Projects.css";
 
 const Projects = ({projects}) => {
   let arr = projects.sort((y,x) => x[1].fund-y[1].fund);
-  arr.map(i=>console.log(i[1]))
     return (
         <section className="portfolio">
         <div className="portfolio__container container container--px">
@@ -14,7 +13,6 @@ const Projects = ({projects}) => {
           <div className="portfolio__wrapper">
             {
                arr.slice(0,3).map(i=>{
-                 console.log(i[1].title)
                  return (
                   <div className="portfolio__card card--1" key={i[0]}>
                   <img src="https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png" alt="Valorant Jett character image" className="card__image" loading="lazy" />

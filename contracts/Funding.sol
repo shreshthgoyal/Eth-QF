@@ -9,7 +9,7 @@ contract Funding is GetProject {
     bool public isMatchingRound = false;
     mapping(address => uint256) public sponsorToDonation;
     address[] public sponsors;
-    address public managerAdd = 0xe921223Dd199e16Ea29aA5c42BE76e77737bCFaB;
+    address public managerAdd = 0x9e0FB6dA4122e6dF03BF928FCf97F2Bf02333225;
 
     function contribute(uint256 _projectId) public payable {
         require(msg.sender != projects[_projectId].projectOwner);

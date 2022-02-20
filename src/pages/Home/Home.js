@@ -113,6 +113,9 @@ const Home = () => {
       ).then(
       getProjects()
       )
+    console.clear();
+
+
       }, [contract]);
       
 
