@@ -24,6 +24,7 @@ contract GetProject {
         uint256 rootSum;
         uint256 matchingSum;
         uint256 matchingShare;
+        uint256 lifetimeMatching;
     }
 
     Project[] public projects;
@@ -46,6 +47,7 @@ contract GetProject {
                 _pitch,
                 _githubLink,
                 _category,
+                0,
                 0,
                 0,
                 0,

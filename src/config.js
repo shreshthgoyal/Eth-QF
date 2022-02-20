@@ -70,6 +70,11 @@ const abi = [
             "internalType": "uint256",
             "name": "matchingShare",
             "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "lifetimeMatching",
+            "type": "uint256"
           }
         ],
         "internalType": "struct GetProject.Project[]",
@@ -239,6 +244,11 @@ const abi = [
         "internalType": "uint256",
         "name": "matchingShare",
         "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "lifetimeMatching",
+        "type": "uint256"
       }
     ],
     "stateMutability": "view",
@@ -318,6 +328,11 @@ const abi = [
       {
         "internalType": "uint256",
         "name": "matchingShare",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "lifetimeMatching",
         "type": "uint256"
       }
     ],

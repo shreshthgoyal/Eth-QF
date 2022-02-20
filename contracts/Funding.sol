@@ -6,7 +6,7 @@ import "./GetProject.sol";
 
 contract Funding is GetProject {
     uint256 public matchingFund = 0;
-    bool public isMatchingRound = true;
+    bool public isMatchingRound = false;
     mapping(address => uint256) public sponsorToDonation;
     address[] public sponsors;
     address public managerAdd = 0xaF735653d8fBee1AF1Eec2B11124c343A0D3F7Dc; 
@@ -33,7 +33,7 @@ contract Funding is GetProject {
             sponsors.push(msg.sender);
         }
 
-        if (matchingFund > 50000000000000000000) {
+        if (matchingFund > 15000000000000000000) {
             isMatchingRound = true;
         }
     }
@@ -61,6 +61,9 @@ contract Funding is GetProject {
                 (projects[j].matchingSum * matchingFund) /
                 totalMatchingSum;
         }
+
+        matchingFund = 0;
+        isMatchingRound = false;
     }
 
     function getAllSponsors() public view returns (address[] memory) {
@@ -71,6 +74,7 @@ contract Funding is GetProject {
         payable(projects[_id].projectOwner).transfer(
             projects[_id].matchingShare
         );
+        projects[_id].lifetimeMatching += projects[_id].matchingShare;
     }
 
     function getBalance() public view returns (uint256) {
@@ -81,6 +85,5 @@ contract Funding is GetProject {
         projects[_projectId].rootSum = 0;
         projects[_projectId].matchingShare = 0;
         projects[_projectId].matchingSum = 0;
-        matchingFund = 0;
     }
 }
