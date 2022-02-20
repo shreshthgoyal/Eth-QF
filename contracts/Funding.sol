@@ -9,12 +9,13 @@ contract Funding is GetProject {
     bool public isMatchingRound = false;
     mapping(address => uint256) public sponsorToDonation;
     address[] public sponsors;
-    address public managerAdd = 0xaF735653d8fBee1AF1Eec2B11124c343A0D3F7Dc; 
+    address public managerAdd = 0xaF735653d8fBee1AF1Eec2B11124c343A0D3F7Dc;
 
     function contribute(uint256 _projectId) public payable {
         require(msg.sender != projects[_projectId].projectOwner);
 
         projects[_projectId].fund += msg.value;
+        projects[_projectId].unpaid += msg.value;
         projects[_projectId].contributors++;
 
         if (isMatchingRound) {
@@ -33,7 +34,7 @@ contract Funding is GetProject {
             sponsors.push(msg.sender);
         }
 
-        if (matchingFund > 15000000000000000000) {
+        if (matchingFund >= 15000000000000000000) {
             isMatchingRound = true;
         }
     }
@@ -60,6 +61,8 @@ contract Funding is GetProject {
             projects[j].matchingShare =
                 (projects[j].matchingSum * matchingFund) /
                 totalMatchingSum;
+            projects[j].unpaid += projects[j].matchingShare;
+            projects[j].lifetimeMatching += projects[j].matchingShare;
         }
 
         matchingFund = 0;
@@ -71,10 +74,7 @@ contract Funding is GetProject {
     }
 
     function sendMatchingShares(uint256 _id) public {
-        payable(projects[_id].projectOwner).transfer(
-            projects[_id].matchingShare
-        );
-        projects[_id].lifetimeMatching += projects[_id].matchingShare;
+        payable(projects[_id].projectOwner).transfer(projects[_id].unpaid);
     }
 
     function getBalance() public view returns (uint256) {
@@ -85,5 +85,6 @@ contract Funding is GetProject {
         projects[_projectId].rootSum = 0;
         projects[_projectId].matchingShare = 0;
         projects[_projectId].matchingSum = 0;
+        projects[_projectId].unpaid = 0;
     }
 }
