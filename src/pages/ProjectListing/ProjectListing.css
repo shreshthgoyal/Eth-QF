@@ -96,6 +96,18 @@ body {
     bottom: 13px;
     right: -12px;
   }
+
+  .empty-project-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20%;
+  }
+
+  .no-projects {
+    margin: 2rem;
+  }
   
   @keyframes mainBlock {
     0% {

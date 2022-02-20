@@ -1,4 +1,4 @@
-const address = "0xd66d8055162259B56680b913adDaf0Ed983f21C2";
+const address = "0x800f7B84D0621AF9858AA5f0A3c1d442d0fcA62A";
 const abi = [
   {
     "inputs": [],
@@ -20,11 +20,6 @@ const abi = [
             "internalType": "uint256",
             "name": "fund",
             "type": "uint256"
-          },
-          {
-            "internalType": "enum GetProject.ProjectState",
-            "name": "state",
-            "type": "uint8"
           },
           {
             "internalType": "string",
@@ -69,6 +64,16 @@ const abi = [
           {
             "internalType": "uint256",
             "name": "matchingShare",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "lifetimeMatching",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "unpaid",
             "type": "uint256"
           }
         ],
@@ -125,6 +130,20 @@ const abi = [
   },
   {
     "inputs": [],
+    "name": "managerAdd",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [],
     "name": "matchingFund",
     "outputs": [
       {
@@ -177,11 +196,6 @@ const abi = [
         "type": "uint256"
       },
       {
-        "internalType": "enum GetProject.ProjectState",
-        "name": "state",
-        "type": "uint8"
-      },
-      {
         "internalType": "string",
         "name": "title",
         "type": "string"
@@ -224,6 +238,16 @@ const abi = [
       {
         "internalType": "uint256",
         "name": "matchingShare",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "lifetimeMatching",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "unpaid",
         "type": "uint256"
       }
     ],
@@ -257,11 +281,6 @@ const abi = [
         "type": "uint256"
       },
       {
-        "internalType": "enum GetProject.ProjectState",
-        "name": "state",
-        "type": "uint8"
-      },
-      {
         "internalType": "string",
         "name": "title",
         "type": "string"
@@ -304,6 +323,16 @@ const abi = [
       {
         "internalType": "uint256",
         "name": "matchingShare",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "lifetimeMatching",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "unpaid",
         "type": "uint256"
       }
     ],

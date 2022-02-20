@@ -11,8 +11,7 @@ class App extends Component {
     const fbase = firebase.initializeApp(firebaseConfig);
     const uiConfig = {
       signInSuccessUrl: `${window.location}/fund` , //This URL is used to return to that page when we got success response for phone authentication.
-      signInOptions:  { provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID, 
-        defaultCountry: 'IN', }
+      signInOptions: [firebase.auth.PhoneAuthProvider.PROVIDER_ID],
     };
     var ui = new firebaseui.auth.AuthUI(firebase.auth());
     ui.start("#firebaseui-auth-container", uiConfig);

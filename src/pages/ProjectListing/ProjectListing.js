@@ -7,11 +7,16 @@ import Footer from "../../Components/Footer/Footer";
 import Navbar from "../../Components/Navbar/Navbar";
 import {address, abi} from "../../config";
 import Web3 from 'web3';
+import { useNavigate } from "react-router-dom";
+import LoginGithub from 'react-login-github';
+import axios from 'axios';
 
 import './ProjectListing.css';
 
 const ProjectListing =  () => {
 
+  let token = null;
+  const navigate = useNavigate();
 
   const [currentAccount, setCurrentAccount] = useState("");
   const [contract, setContract] = useState();
@@ -114,6 +119,17 @@ const ProjectListing =  () => {
         setSearchQuery(query);
     }
 
+    const onSuccess = response => {
+      axios.get(`https://qfdone.herokuapp.com/authenticate/${response.code}`)
+        .then(res => res.data.token)
+        .then(_token => {
+          token = _token;
+          navigate('/form', {state : token})
+        })
+        .catch(err => console.log(err));};
+  
+      const onFailure = res => console.error(res);
+
     return(
         <div className="wrapper">
         <div className="project-nav"><Navbar /></div>
@@ -141,8 +157,8 @@ const ProjectListing =  () => {
                             <Filter selectedCategories={selectedCategories} setSelectedCategories={setSelectedCategories} setSelect= {setSelect} select={select}/>
                         </div>
                         <div className="project-grid-wrapper">
-                        {
-                         projects.filter((project) => {
+                        {projects.length != 0 ?
+                         (projects.filter((project) => {
                                 if (searchQuery === "" )                               
                                     return project[1];
                                 else if (project[1].title.toLowerCase().includes(searchQuery.toLowerCase()))
@@ -155,7 +171,14 @@ const ProjectListing =  () => {
                            return selectedCategories[project[1].category] ? <ProjectCard project={project[1]} key={project[0]}/> : null 
 
                            return <ProjectCard project={project[1]} key={project[0]} contract={contract} currentAccount={currentAccount} />;
-                            })
+                            })) : <div className="empty-project-list"><div className="no-projects">No project has been listed yet</div>
+                              <LoginGithub clientId="0661798dd8b17b1f2412"
+                            onSuccess={onSuccess}
+                            onFailure={onFailure}
+                            scope= "repo%20read:user"
+                            buttonText= "List a Project"
+                            className="hero__cta cta cta--primary" />
+                            </div>
                         }
                         </div>
                 </div>

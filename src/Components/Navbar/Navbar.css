@@ -88,6 +88,20 @@
   .nav-icon {
     display: none;
   }
+
+  .round-indicator {
+    font-size: small;
+    width: fit-content;
+    background-color: rgb(39, 223, 39);
+    color: white;
+    padding: 2px 5px;
+    border-radius: 10px;
+    align-items: center;
+    margin-left: 0px;
+    cursor: pointer;
+    text-decoration: none;
+    flex-grow: 1;
+  }
   
   @media screen and (max-width: 960px) {
     .nav-menu {

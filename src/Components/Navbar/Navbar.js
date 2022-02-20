@@ -2,7 +2,7 @@ import './Navbar.css';
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 
-const Navbar =() => {
+const Navbar =({isMatchingRound}) => {
 
 const [click, setClick] = React.useState(false);
 
@@ -19,8 +19,11 @@ return (
         <NavLink exact="true" to="/" className="nav-logo">
           ETH QF   
           <i className="fab fa-ethereum log"></i>
+          {isMatchingRound && <div className="round-indicator">Matching Round is LIVE</div>}
         </NavLink>
+        
         <ul className={click ? "nav-menu active" : "nav-menu"}>
+          
           <li className="nav-item">
             <NavLink
               exact="true"

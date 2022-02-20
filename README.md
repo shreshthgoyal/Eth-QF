@@ -1,70 +1,171 @@
-# Getting Started with Create React App
+[![Contributors][contributors-shield]][contributors-url]
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <h1 align="center">ETH QF</h1>
+  <p align="center">
+   We fund with the community.  For the community.
+   <br />
+  </p>
+</p>
+<p align ="center">
+<img src="https://gcdnb.pbrd.co/images/PNMAEIBhZYNl.png?o=1" alt="ethqf" border="0">
+</p>
+<br />
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary>Table of Contents</summary><br />
+  <ol>
+    <li>
+      <a href="#about-the-project">What is Eth QF?</a>
+      </li>
+      <li>
+      <a href="#screenshots">Screenshots</a>
+      </li>
+      <li>
+         <a href="#video">Demonstration Video</a>
+      </li>
+    <li><a href="#features">Features</a>
+    </li>
+    <li><a href="#technologies-used">Technologies, Libraries and Packages Used</a>
+    </li>
+      <li><a href="#local-setup">Local Setup</a></li>
+      <li><a href="#next">What Next?</a></li>
+    <li><a href="#team">Team Members</a></li>
+  </ol>
+</details>
 
-## Available Scripts
 
-In the project directory, you can run:
+<div id="about-the-project" />
 
-### `npm start`
+<!-- ABOUT THE PROJECT -->
+# What is Eth QF?
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[Eth QF](https://github.com/shreshthgoyal/QF) is a decentralised platform that enables crowdfunding for projects on Ethereum ecosystem. Eth QF provides projects funding through the concept of Quadratic Funding. We at Eth QF, fund the community for the community.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Why Blockchain?
 
-### `npm test`
+* **Time efficient :** Blockchain allows us to make the entire process decentralized, where neither of the parties has all of the power. It offers transparency and connects the borrower directly to the lender; with no middlemen involved. The process is automated and hence a lot faster than traditional lending methods.
+* **Fair Interest Rates :** Since blockchain is immutable, the interest rate once decided upon cannot be changed later in an unfair way. The lender gets to specify the desired interest rate beforehand and the borrower gets to choose the interest rate he wants from the ones offered by the different lenders.
+* **Seamless repayment :** Blockchain also removes the worry of the lenders of having their loans repaid. If the borrower does not repay the loan before the specified due date, the lenders have the mortgage submitted by the borrower which can then be auctioned off.
+* 
+### What is Quadratic Funding?
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* **Quadratic Funding converts 1$ to 20$!!**
 
-### `npm run build`
+Quadratic investment is a concept that extends ideas from quadratic vote casting to a mechanism for investing.
+The **matching pool** is at the heart of Quadratic funding.
+A matching pool is a money pool that is provided by matching companions. Matching partners are businesses, individuals, or even protocols that assist with public goods tasks. The funds collected in the matching pool are used to multiply individual contributions to exceptional initiatives.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+You can learn more about  Quadratic Funding [here](https://finematics.com/quadratic-funding-explained/).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Why Quadratic Funding?
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* **Community driven :** In Quadratic Funding, the algorithm used after each CLR Matching Round, checks the number of contributors who donated to a certain project, in layman terms, the higher the number of contributors higher will be the amount supported to a project.
+* **Need of the hour :** Crowd funding schemes for public goods have a fundamental weakness- the match amount for a project is proportional to the sum of contributions it receives during a stipulated period of time, whereas if community has more demand for some project than the other, proportion should not be equal. CLR Matching solves this problem.
 
-### `npm run eject`
+<div id="screenshots" />
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Screenshots
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Screenshots of our DApp are added to [this link](https://photos.app.goo.gl/rM9hR66io1JGBUfEA).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<div id="video" />
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# Demonstration 
 
-## Learn More
+Demonstration of our Dapp is added to [this link](https://vimeo.com/645497797). <br />
+You can checkout the presentation [here](https://prezi.com/view/3FpSC5ii5PdE3s3mumji/). <br />
+Our Project Workflow is added to [this link](https://app.milanote.com/1N2f911lxmcl1C?p=JnqtrMZqLIf).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<div id="features" />
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<!-- GETTING STARTED -->
+# Features
 
-### Code Splitting
+* Project Owners can list their projects on the website from their GitHub. GitHub OAuth has been implemented in our application via which owners can list their projects and give information about their project to prevent scams.
+* Contributors can filter projects from the list through filters like Project title and Project category.
+* Each project is allocated its own description page from where contributors can learn about the project and the owner before contributing.
+* Before contributing to a specific project, contributors need to go through an OTP based authentication to validate their contribution and reduce the risk of bot contributions.
+* To prevent sybil attack contributors can at max contribute 5 times before their phone number gets dismissed.
+> If this project goes in production, instead of OTP based authentication system, we are planning to introduce Aadhar API for user validation, as Aadhar API is not availabe for free we resorted to OTP based authentication system.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+>The Sybil Attack is a type of attack seen in peer-to-peer networks in which a node in the network actively operates multiple identities at the same time, undermining authority/power in reputation systems. The main goal of this attack is to gain the majority of network influence in order to carry out illegal (in terms of network rules and laws) actions in the system.
 
-### Analyzing the Bundle Size
+* If a user wants to be a sponsor and donate funds to matching pool for public goods, they can contribute ethers in the sponsor page. We have set an lower limit of 5 ethers, for a user to be a sponsor.
+* All the sponsor addresses are displayed on the sponsor page.
+* Matching rounds states are displayed on each page, to notify the users whether a matching round is going on or not.
+* Only the manager can initiate and distribute funds collected in the matching round, when a certain limit of amount is connected in the pool.
+* Each project owner can withdraw the amount collected whenever they want to, through the withdraw button.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<div id="technologies-used" />
 
-### Making a Progressive Web App
+# Technologies, Libraries and Packages Used
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+1. ReactJS + Hooks
+2. Ethereum
+3. Solidity
+4. Truffle
+5. MetaMask
+6. Ganache
+7. Web3
+8. jQuery
+9. Firebase 
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+<div id="local-setup" />
 
-### Deployment
+# Local Setup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+> **Pre-Requisites**
+> React
+> Ganache 
+> MetaMask
+> Truffle
+1. Fork this repository.
+2. Clone the repository
+   ```sh
+    git clone https://github.com/shreshthgoyal/QF.git
+    ```
+3. Open the folder in which you cloned the repository.
+4. Open Ganache to run your local blockchain.
+5. Run this command to build your smart contracts.
+    ```sh
+    truffle init
+    truffle test
+    truffle migrate --reset
+    ```
+6. Update your config.js present in root directory using abi and address present in build files.
+7. Run on your local host and connect your wallet with metamask to perfrom the transactions.
+8. To start your application run the following command in your terminal.
+   ```sh
+   npm start
+   ```
+   
 
-### `npm run build` fails to minify
+> Star this repository ✨ or send us some ethers at 0x08C5374DfB9Df1A5D42C76a00AcA277CF98ABe50
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<div id="next" />
+
+# What Next?
+
+* We can create a local IPFS gateway to store the files and create CIDs.
+* We can have user profile system for project managers.
+* We can have a archive feature where we can show history of previous Matching Rounds.
+
+<div id="team" />
+<!-- CONTACT -->
+
+# Team
+
+Team Number - **5**
+
+- #### Team Members
+    - [Kshitij Ayush](https://github.com/kshitij-404)
+    - [Shreshth Goyal](https://github.com/shreshthgoyal)
+    - [Rishabh Kumar](https://github.com/rish78)
+# 
+
+[contributors-shield]: https://img.shields.io/github/contributors/shreshthgoyal/QF.svg?style=for-the-badge
+[contributors-url]: https://github.com/shreshthgoyal/QF

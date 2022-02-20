@@ -29,6 +29,7 @@ let val = 0;
  const contributeEth = async () => {
    if(fund )
   {   
+    console.log(project[1]);
     await getAmount();
     await contract.methods.contribute(id).send({from : currentAccount, to:project[1], value: web3.utils.toWei(val !== null ? val : "0", "ether"), gas: 6721950 });
     window.location.replace(window.location.href.slice(0, window.location.href.length -5 ));
@@ -60,11 +61,19 @@ let val = 0;
    },[])
 
    const amount = project.fund/1000000000000000000;
+   const matchingAmount = project.matchingShare/1000000000000000000;
+   const lifetimeMatching = project.lifetimeMatching/1000000000000000000;
+   const unpaidAmount = project.unpaid/1000000000000000000;
 
    const sendMatchingShares = async () => {
     
     const res = await contract.methods.sendMatchingShares(id).send({from:currentAccount});
     console.log(res);
+    if(res.status){
+      const result = await contract.methods.resetMatching(id).send({from:currentAccount});
+      console.log(result);
+      window.location.reload();
+    }
  }
 
    var images = [];
@@ -111,7 +120,7 @@ images[2] = "https://www.pngall.com/wp-content/uploads/10/Ethereum-Logo-PNG.png"
                 </span>
                 <div className="reviewsDesc">
                   <ul className="starsDesc">
-                    <li>{`${amount} ETH`}</li>
+                    <li>{`${amount+lifetimeMatching} ETH`}</li>
                   </ul>
                   <span>
                     <br />
@@ -132,7 +141,7 @@ images[2] = "https://www.pngall.com/wp-content/uploads/10/Ethereum-Logo-PNG.png"
                 </div>
                 <div className="reviewsDesc">
                   <ul className="starsDesc">
-                    <li>0 ETH</li>
+                    <li>{`${lifetimeMatching} ETH`}</li>
                   </ul>
                   <span>
                     Lifetime CLR Matching
@@ -157,12 +166,14 @@ images[2] = "https://www.pngall.com/wp-content/uploads/10/Ethereum-Logo-PNG.png"
               <div className="actionDesc">
                 <div className="tagContainDesc">
                   <div className="tagsDesc">{project.category}</div>
-                </div>
+                </div><br></br>
                 {/* <button onClick={ () => { contributeEth()}}>Contribute </button> */}
-                <button onClick={sendMatchingShares} className="hero__cta cta arch">Withdraw </button>
+                {currentAccount === project[1].toLowerCase() ? <React.Fragment><div>Matching Share this round : {`${matchingAmount} ETH`} </div> <br></br>
+                <div>Withdrawable Amount : {`${unpaidAmount} ETH`} </div>
+                <button onClick={sendMatchingShares} className="hero__cta cta arch">Withdraw </button></React.Fragment> : 
                 <Popup trigger={<button>Contribute </button>} onOpen = {click} closeOnEscape = {false} closeOnDocumentClick= {false} modal id="pop">
-                <Verify user={user} setUser={setUser}/>
-                </Popup>
+                <Verify />
+                </Popup>}
               </div>
             </div>
           </div>
