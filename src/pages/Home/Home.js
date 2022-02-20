@@ -161,7 +161,7 @@ const Home = () => {
           <Projects projects={projects} />
           <Steps />
           <div id="wrapper">
-              <Stats title="Matching Fund" icon="fa fa-cube" color="	#76CBC1" number={parseInt(matchingFund)/1000000000000000000}/>
+              <Stats title="Matching Pool" icon="fa fa-cube" color="	#76CBC1" number={parseInt(matchingFund)/1000000000000000000}/>
           </div>
           {(currentAccount == managerAddress) ? (isMatchingRound ? <Banner contract={contract} currentAccount = {currentAccount}/> : <div className="manager-message">Matching Round has not yet started</div>) : <div></div> }
           

@@ -1,6 +1,7 @@
 import "./Banner.css";
 import {useState, useEffect} from 'react';
 import {address} from '../../config';
+import {ToastsContainer, ToastsStore} from 'react-toasts';
 
 const Banner = ({contract, currentAccount}) => {
   const [projects, setProjects] = useState([]);
@@ -29,8 +30,9 @@ const Banner = ({contract, currentAccount}) => {
  
 
  const getBalance = async () => {
-  const res = await contract.methods.getBalance().call();
-  console.log(res);
+  let res = await contract.methods.getBalance().call();
+  res /= 1000000000000000000;
+  ToastsStore.success(`Current contract balance : ${res} ETH`);
  }
 
  useEffect(() => {
@@ -52,6 +54,7 @@ const Banner = ({contract, currentAccount}) => {
       <button onClick={getBalance} className="hero__cta cta arch">Get Balance</button>
       </div>
     </div>
+    <ToastsContainer store={ToastsStore}/>
   </section>
     )
 }

@@ -140,9 +140,10 @@ const Sponsors = () => {
     <div className="features__container container container--px" >
       <div className="features__text sponsors" >
         <h1 className="features__subtitle subtitle-primary" >Sponsor</h1>
-        <h2 className="features__title title-primary">Matching Fund</h2>
+        <h2 className="features__title title-primary">Matching Pool</h2>
         <p className="features__paragraph">
-        Contribute to the model of funding public goods where a fund from governments or philanthropic institutions matches individual contributions to a project.
+        Contribute to the model of funding public goods where a fund from governments or philanthropic institutions matches individual contributions to a project. <br/><br/>
+        Matching round starts automatically as soon as matching pool hits 15 ETH.
         </p>
       </div>
 
@@ -155,7 +156,7 @@ const Sponsors = () => {
           })
           }
           <h3 className="feature__title stat">
-          <CountTo to= {parseInt(matchingFund)/1000000000000000000} speed={1000} />
+          <CountTo to= {parseFloat(matchingFund)/1000000000000000000} speed={1000} digits={2} />
           </h3>
           <p className="features__paragraph u">
           Ethers funded till date to matching pool.
