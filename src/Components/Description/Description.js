@@ -164,11 +164,11 @@ images[2] = "https://www.pngall.com/wp-content/uploads/10/Ethereum-Logo-PNG.png"
                   <div className="tagsDesc">{project.category}</div>
                 </div><br></br>
                 {/* <button onClick={ () => { contributeEth()}}>Contribute </button> */}
-                <div>Matching Share this round : {`${matchingAmount} ETH`} </div>
-                <button onClick={sendMatchingShares} className="hero__cta cta arch">Withdraw </button>
+                {currentAccount == project[1].toLowerCase() ? <React.Fragment><div>Matching Share this round : {`${matchingAmount} ETH`} </div>
+                <button onClick={sendMatchingShares} className="hero__cta cta arch">Withdraw </button></React.Fragment> : 
                 <Popup trigger={<button>Contribute </button>} onOpen = {click} closeOnEscape = {false} closeOnDocumentClick= {false} modal id="pop">
                 <Verify />
-                </Popup>
+                </Popup>}
               </div>
             </div>
           </div>
