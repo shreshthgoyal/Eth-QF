@@ -1,4 +1,5 @@
 import './Footer.css';
+import {NavLink} from 'react-router-dom';
 const Footer = () => {
     return (
    <div>
@@ -25,16 +26,42 @@ const Footer = () => {
 
     <nav className="footer__inner flex">
       <ul className="footer__list list" role="menu">
-        <h3 className="list__title">Home</h3>
+        <h3 className="list__title"><NavLink
+              exact="true"
+              to="/"
+              activeclassname="active"
+              className="nav-links"
+            >Home</NavLink></h3>
       </ul>
       <ul className="footer__list list" role="menu">
-        <h3 className="list__title">Contribute</h3>
+        <h3 className="list__title"><NavLink
+              exact="true"
+              to="/sponsor"
+              activeclassname="active"
+              className="nav-links"
+             
+            >Contribute</NavLink></h3>
       </ul>
       <ul className="footer__list list" role="menu">
-        <h3 className="list__title">Projects</h3>
+        <h3 className="list__title"><NavLink
+              exact="true"
+              to="/projects"
+              activeclassname="active"
+              className="nav-links"
+              
+            >
+              Projects
+            </NavLink></h3>
       </ul>
       <ul className="footer__list list" role="menu">
-        <h3 className="list__title">Sponsor</h3>
+        <h3 className="list__title"><NavLink
+              exact="true"
+              to="/sponsor"
+              activeclassname="active"
+              className="nav-links"
+              >
+              Sponsor
+            </NavLink></h3>
       </ul>
     </nav>
     <p className="footer__text">© 2020 Batch IMT - Team5</p>
