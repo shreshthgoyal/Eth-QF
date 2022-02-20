@@ -130,6 +130,20 @@ const abi = [
   },
   {
     "inputs": [],
+    "name": "managerAdd",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [],
     "name": "matchingFund",
     "outputs": [
       {
