@@ -1,4 +1,4 @@
-const address = "0xd66d8055162259B56680b913adDaf0Ed983f21C2";
+const address = "0x2Eb253cABD67569FF29AF56dd7242f43C9f987DC";
 const abi = [
   {
     "inputs": [],
@@ -122,6 +122,20 @@ const abi = [
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "managerAdd",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
   },
   {
     "inputs": [],

@@ -317,6 +317,13 @@ html {
     transition: all 300ms ease-in-out;
     background-color: var(--clr-white);
   }
+
+  .manager-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem;
+  }
   
   @media screen and (min-width: 40em) {
     .header {

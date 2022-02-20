@@ -7,6 +7,7 @@
     padding: 1rem 1.75rem;
     font-size: 1rem;
     font-weight: var(--fw-bold);
+    margin: 0rem 2rem;
 }
 
 .arch:hover {
@@ -14,4 +15,10 @@
         background-color: transparent;
         color: var(--clr-primary);
         border-color: currentColor;
+}
+
+.arch_iv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

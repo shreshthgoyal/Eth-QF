@@ -26,6 +26,7 @@ const Home = () => {
   const [contract, setContract] = useState();
   const [web3Provider, setWeb3Provider] = useState(null);
   const [projects, setProjects] = useState([]);
+  const [managerAddress, setManagerAddress] = useState();
 
 
 
@@ -59,10 +60,12 @@ const Home = () => {
   const getMatchingFund = async () => {
     if(contract)
    { const res = await contract.methods.matchingFund().call();
-     const matchingStatus = await contract.methods.isMatchingRound.call();
+     const matchingStatus = await contract.methods.isMatchingRound().call();
+     const manAdd = await contract.methods.managerAdd().call();
     await setMatchingFund(res);
     await setCurrentAccount(currentAccount);
     await setIsMatchingRound(matchingStatus);
+    await setManagerAddress(manAdd.toLowerCase());
   }
   }
 
@@ -134,7 +137,7 @@ const Home = () => {
       return (
      
           <div>
-            <Navbar />
+            <Navbar isMatchingRound={isMatchingRound}/>
           <main className="main hero">
               <div className="hero__container container container--px flex lp">
                 <div className="hero__text">
@@ -160,7 +163,8 @@ const Home = () => {
           <div id="wrapper">
               <Stats title="Matching Fund" icon="fa fa-cube" color="	#76CBC1" number={parseInt(matchingFund)/1000000000000000000}/>
           </div>
-          <Banner contract={contract} currentAccount = {currentAccount}/>
+          {(currentAccount == managerAddress) ? (isMatchingRound ? <Banner contract={contract} currentAccount = {currentAccount}/> : <div className="manager-message">Matching Round has not yet started</div>) : <div></div> }
+          
           <Footer />
           </main>
           </div>
