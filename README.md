@@ -8,7 +8,7 @@
   </p>
 </p>
 <p align ="center">
-<img src="https://gcdnb.pbrd.co/images/PNMAEIBhZYNl.png?o=1" alt="ethqf" border="0">
+<img src="https://photos.app.goo.gl/5YMLXHz4A8FSNbwJA" alt="ethqf" border="0">
 </p>
 <br />
 
