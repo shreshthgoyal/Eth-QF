@@ -139,6 +139,7 @@ Our Project Workflow is added to [this link](https://app.milanote.com/1N2f911lxm
 7. Run on your local host and connect your wallet with metamask to perfrom the transactions.
 8. To start your application run the following command in your terminal.
    ```sh
+   npm i 
    npm start
    ```
    
