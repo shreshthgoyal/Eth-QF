@@ -5,7 +5,7 @@ import Home from "./pages/Home/Home";
 import ProjectForm from "./pages/ProjectForm/ProjectForm";
 import ProjectListing from "./pages/ProjectListing/ProjectListing";
 import Sponsors from "./pages/Sponsors/Sponsors";
-
+import UserProf from "./pages/UserProf/UserProf";
 import ProjectDescription from "./pages/ProjectDescription/ProjectDescription";
 import {address, abi} from "./config";
 import Web3 from 'web3';
@@ -103,6 +103,10 @@ function App() {
              <Route
               path="/description/:id/:fund"
               element={<ProjectDescription />}
+            ></Route>
+            <Route
+              path="/user/:id"
+              element={<UserProf />}
             ></Route>
           </Routes>
         </div>

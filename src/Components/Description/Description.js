@@ -159,7 +159,7 @@ images[2] = "https://www.pngall.com/wp-content/uploads/10/Ethereum-Logo-PNG.png"
                   alt="owner"
                   className="ownerDesc"
                 ></img>
-                <a href={(project.githubLink != "") ? `https://github.com/${project.githubLink}/` : ""} target="_blank" rel="noreferrer">
+                <a href={(project.githubLink != "") ? `/user/${project.githubLink}` : ""}>
                   <h3>{project.githubLink}</h3>
                 </a>
               </div>

@@ -7,7 +7,7 @@ import Popup from 'react-popup';
 
 ReactDOM.render(
   <React.Fragment>
-    {console.log = console.warn = console.error = () => {}}
+    {/* {console.log = console.warn = console.error = () => {}} */}
     <Popup />
     <App />
   </React.Fragment>,
