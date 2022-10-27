@@ -11,7 +11,7 @@ contract GetProject {
         uint256 fund;
         string title;
         string pitch;
-        string githubLink;
+        string githubUser;
         string category;
         uint256 contributors;
         uint256 matchingContributors;
@@ -28,7 +28,7 @@ contract GetProject {
     function listProject(
         string memory _title,
         string memory _pitch,
-        string memory _githubLink,
+        string memory _username,
         string memory _category
     ) public {
         uint256 _projectId = projects.length;
@@ -39,7 +39,7 @@ contract GetProject {
                 0,
                 _title,
                 _pitch,
-                _githubLink,
+                _username,
                 _category,
                 0,
                 0,

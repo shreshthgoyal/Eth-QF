@@ -1,5 +1,5 @@
-const address = "0xc1AE2262aB5577409772105aeD6C50FeDaDbb3FB";
-const abi = [
+const address = "0x32d0CF49DC557aEEfC94076D7AE5Cd240eFB814B";
+const abi =  [
   {
     "inputs": [],
     "name": "getAllProjects",
@@ -33,7 +33,7 @@ const abi = [
           },
           {
             "internalType": "string",
-            "name": "githubLink",
+            "name": "githubUser",
             "type": "string"
           },
           {
@@ -114,7 +114,7 @@ const abi = [
       },
       {
         "internalType": "string",
-        "name": "_githubLink",
+        "name": "_username",
         "type": "string"
       },
       {
@@ -207,7 +207,7 @@ const abi = [
       },
       {
         "internalType": "string",
-        "name": "githubLink",
+        "name": "githubUser",
         "type": "string"
       },
       {
@@ -292,7 +292,7 @@ const abi = [
       },
       {
         "internalType": "string",
-        "name": "githubLink",
+        "name": "githubUser",
         "type": "string"
       },
       {

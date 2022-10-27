@@ -45,7 +45,7 @@ let val = 0;
  const getInfo = async () => {
   if(project.title !== "")
    { const users = await axios({
-      url: `https://api.github.com/repos/${project.githubLink}/${project.title}`,
+      url: `https://api.github.com/repos/${project.githubUser}/${project.title}`,
       method: 'get',
     });
     setBlurb(users.data.description);
@@ -109,7 +109,7 @@ images[2] = "https://www.pngall.com/wp-content/uploads/10/Ethereum-Logo-PNG.png"
                     <br />
                   </p>
                   <p>
-                    <a href={`https://github.com/${project.githubLink}/${project.title}`} className="repolinkDesc" target="_blank" rel="noopener noreferrer">
+                    <a href={`https://github.com/${project.githubUser}/${project.title}`} className="repolinkDesc" target="_blank" rel="noopener noreferrer">
                       Github Repo
                     </a>
                   </p>
@@ -159,8 +159,8 @@ images[2] = "https://www.pngall.com/wp-content/uploads/10/Ethereum-Logo-PNG.png"
                   alt="owner"
                   className="ownerDesc"
                 ></img>
-                <a href={(project.githubLink != "") ? `/user/${project.githubLink}` : ""}>
-                  <h3>{project.githubLink}</h3>
+                <a href={(project.githubUser != "") ? `/user/${project.githubUser}` : ""}>
+                  <h3>{project.githubUser}</h3>
                 </a>
               </div>
               <div className="actionDesc">

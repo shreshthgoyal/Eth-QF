@@ -112,7 +112,8 @@ const ProjectListing =  () => {
       
     const getProjects = async () => {
        if(contract)
-        contract.methods.getAllProjects().call().then(i =>Object.entries(i)).then(i => setProjects(i));
+        contract.methods.getAllProjects().call().then(i =>Object.entries(i)).then(i => setProjects(i)).then(console.log(projects));
+
     }
 
     const handleSearch = (query) =>{

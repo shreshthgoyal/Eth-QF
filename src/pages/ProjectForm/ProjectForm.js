@@ -93,7 +93,7 @@ const ProjectForm = ({contract, currentAccount}) => {
     className="animation a3"
   />
       {verified ? <button className="animation a3 show" type="submit" id="fb" onClick={() => {
-      contract.methods.listProject(val, pitch, (val !== "") ? userName : "", category).send({from : currentAccount}); 
+      contract.methods.listProject(val, pitch, userName, category).send({from : currentAccount}); 
       }} >
         List</button>:null}
     </div>

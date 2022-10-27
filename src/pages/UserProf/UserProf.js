@@ -5,13 +5,44 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Web3 from 'web3';
 import {address, abi} from "../../config";
+import ProjectCard from "../../Components/ProjectCard/ProjectCard";
 
 
 const UserProf = () => {
 
     const [contract, setContract] = useState();
+    const [currentAccount, setCurrentAccount] = useState("");
   const [web3Provider, setWeb3Provider] = useState(null);
-  const [project, setProject] = useState([]);
+  const [projects, setProjects] = useState([]);
+  const [ userProjects, setUserProjects] = useState([]);
+  const [totalFund, setTotalFund] = useState(0);
+
+
+  const checkWalletIsConnected = async () => {
+    const {ethereum} = window;
+    if(!ethereum){
+      console.log("Install Metamask please!");
+      return;
+    }else{
+      console.log("All set!");
+    }
+    try{
+      const accounts = await ethereum.request({method: 'eth_requestAccounts'});
+
+      if(accounts.length !== 0){
+        const account = accounts[0];
+        console.log("Account address : ", account);
+        setCurrentAccount(account)
+        await loadContract();
+        
+      }else{
+        console.log("No account found");
+      }
+      
+    } catch(error){
+      console.log("Error : ", error);
+    }
+  }
 
   const loadContract = async () => {
     try{
@@ -48,15 +79,37 @@ const UserProf = () => {
   }
 
   const getProjects = async () => {
-    if(contract)
-     contract.methods.getAllProjects().call().then(i =>Object.entries(i)).then(i => console.log(i));
+    console.log("getting projects...");
+    console.log(contract);
+    if(contract){
+        console.log("here")
+        await contract.methods.getAllProjects().call().then(i =>Object.entries(i)).then(i => {
+            let a = 0;
+            i.forEach(async item=>{
+                
+                if(item[1].githubUser === id){
+                    a += item[1].lifetimeMatching/1000000000000000000 + item[1].fund/1000000000000000000;
+                    console.log(a);
+                    console.log(item[1]);
+                    projects.push(item[1]);
+                    
+                    setProjects([...projects]);
+                }
+                
+            })
+            setTotalFund(a);
+         }).then(console.log(projects));
+    }
+     
+
  }
+
 
     const [avatar, setAvatar] = useState("");
     const [bio, setBio] = useState("");
     const [web, setWeb] = useState("");
     const [follower, setFollower] = useState(0);
-    const [projects, setProjects] = useState(0);
+    const [repos, setRepos] = useState(0);
     const [github, setGithub] = useState("");
     const [name, setName] = useState("");
     const [twitter, setTwitter] = useState("");
@@ -70,7 +123,7 @@ const UserProf = () => {
             try {
                 const response = await fetch(url);
                 const json = await response.json();
-                setProjects(json.public_repos)
+                setRepos(json.public_repos)
                 setAvatar(json.avatar_url);
                 setBio(json.bio);
                 setWeb(json.blog);
@@ -78,13 +131,15 @@ const UserProf = () => {
                 setGithub(json.html_url);
                 setName(json.name);
                 setTwitter(json.twitter_username);
+                await getProjects();
+                
             } catch (error) {
                 console.log("error", error);
             }
         };
         
 
-        fetchData().then(getProjects);
+        checkWalletIsConnected().then(fetchData());
 
     }, [contract]);
     return (
@@ -150,23 +205,30 @@ const UserProf = () => {
                             </div>
                             <div className="col-3 col-lg-3">
                                 <div className="count-data text-center">
-                                    <h6 className="count h2" data-to="150" data-speed="150">150</h6>
+                                    <h6 className="count h2" data-to="150" data-speed="150">{projects.length}</h6>
                                     <p className="m-0px font-w-300">Projects Listed</p>
                                 </div>
                             </div>
                             <div className="col-3 col-lg-3">
                                 <div className="count-data text-center">
-                                    <h6 className="count h2" data-to="850" data-speed="850">850</h6>
+                                    <h6 className="count h2" data-to="850" data-speed="850">{totalFund} ETH</h6>
                                     <p className="m-0px font-w-300">Total Funding Collected</p>
                                 </div>
                             </div>
                             <div className="col-3 col-lg-3">
                                 <div className="count-data text-center">
-                                    <h6 className="count h2" data-to="850" data-speed="850">{projects}</h6>
+                                    <h6 className="count h2" data-to="850" data-speed="850">{repos}</h6>
                                     <p className="m-0px font-w-300">Total Projects</p>
                                 </div>
                             </div>
                         </div>
+                        
+                    </div>
+                    <br /><br /><br />
+                    <div className="projects-wrapper">
+                   
+                    {projects.map(project=> <ProjectCard project={project} contract={contract} currentAccount = {currentAccount}/>)}
+                    
                     </div>
                 </div>
             </section>
