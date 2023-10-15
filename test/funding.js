@@ -13,11 +13,13 @@ contract("Funding", async ([owner, alice, bob, charlie]) => {
   })
   it("should allow contributions to a project", async () => {
     try{
-      await contractInstance.listProject("Project1", "Testing Contract", "https://github.com/shreshthgoyal/QF", "DeFi", {from:alice});
+      await contractInstance.listProject("Project1", "Testing Contract", "https://github.com/shreshthgoyal/Eth-QF", "DeFi", {from:alice});
 
 
       const {logs} = await contractInstance.contribute(0, {from: bob, value:10000});
       const project = await contractInstance.projects(0);
+
+      console.log(project)
 
       assert.equal(project.contributors, 1);
       assert.equal(project.fund, 10000);

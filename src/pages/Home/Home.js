@@ -8,7 +8,7 @@ import Stats from "../../Components/Stats/Stats.js";
 import Banner from "../../Components/Banner/Banner.js";
 import {Link} from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import LoginGithub from 'react-login-github';
+import GitHubLogin from 'react-github-login';
 import React from 'react';
 import axios from 'axios';
 import {address, abi} from "../../config";
@@ -126,14 +126,17 @@ const Home = () => {
         }
      }
 
+    //  const onSuccess = response => console.log(response);
+
   const onSuccess = response => {
-    axios.get(`https://qfdone.herokuapp.com/authenticate/${response.code}`)
+    axios.get(`http://localhost:2400/authenticate/${response.code}`)
       .then(res => res.data.token)
       .then(_token => {
         token = _token;
         navigate('/form', {state : token})
       })
-      .catch(err => console.log(err));};
+      .catch(err => console.log(err));
+    };
 
     const onFailure = res => console.error(res);
 
@@ -148,12 +151,15 @@ const Home = () => {
                   <p className="hero__paragraph">
                       Going forward with the community. <br /> This is a platform which provides funding for projects through Quadratic funding.
                   </p>
-                  <LoginGithub clientId="0661798dd8b17b1f2412"
+
+                  <GitHubLogin clientId="0661798dd8b17b1f2412"
+                   redirectUri="" 
               onSuccess={onSuccess}
               onFailure={onFailure}
               scope= "repo%20read:user"
               buttonText= "List a Project"
               className="hero__cta cta cta--primary" />
+
                   <Link to="/projects" className="hero__cta cta cta--primary bt2">Fund a Project</Link>
                 </div>
                 <div className="hero__image-wrapper">

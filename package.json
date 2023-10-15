@@ -25,6 +25,7 @@
     "react-count-to": "^0.12.0",
     "react-dom": "^17.0.2",
     "react-firebase-hooks": "^5.0.0",
+    "react-github-login": "^1.0.3",
     "react-google-recaptcha": "^2.1.0",
     "react-login-github": "^1.0.7",
     "react-popup": "^0.10.0",
@@ -37,7 +38,7 @@
     "web3": "^1.7.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts --openssl-legacy-provider start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

@@ -1,5 +1,5 @@
 const Funding = artifacts.require("Funding");
 
 module.exports = function (deployer) {
-  deployer.deploy(Funding, "0x8Fd01f26fB938cE92704Cc931cAA907A42A6A90b");
+  deployer.deploy(Funding, "0x00BF4a0694560b09818930d2d711Ff82Ba577f6C");
 };
