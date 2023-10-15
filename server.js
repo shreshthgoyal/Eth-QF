@@ -18,6 +18,8 @@ const axios = require('axios')
 const clientID = '0661798dd8b17b1f2412'
 const clientSecret = '76c355ce64ad47d96ff2555ae90e37542a9fcba6'
 
+// Function to authorize user's github
+
 app.get('/authenticate/:code', (req, res) => {
 
   const requestToken=req.params.code;
